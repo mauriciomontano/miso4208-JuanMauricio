@@ -1,0 +1,882 @@
+--------- beginning of main
+11-19 22:45:00.015  1667  1817 D EGL_emulation: eglMakeCurrent: 0xa1b73c60: ver 2 0 (tinfo 0xa1b62d30)
+11-19 22:45:02.323  6419  6419 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:02.325  6419  6419 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:02.349  6419  6419 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:02.352  6419  6419 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:02.363  6419  6419 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:02.363  6419  6419 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:02.364  6419  6419 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:02.371  6419  6419 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:02.375  6419  6419 I art     : System.exit called, status: 0
+11-19 22:45:02.375  6419  6419 I AndroidRuntime: VM exiting with result code 0.
+--------- beginning of system
+11-19 22:45:02.396  1588  1601 I ActivityManager: Force stopping net.alaindonesia.silectric appid=10084 user=-1: deletePackageX
+11-19 22:45:02.429  1588  1613 I art     : Starting a blocking GC Explicit
+11-19 22:45:02.449  1588  1613 I art     : Explicit concurrent mark sweep GC freed 16894(1110KB) AllocSpace objects, 8(160KB) LOS objects, 25% free, 11MB/15MB, paused 259us total 19.969ms
+11-19 22:45:02.455  1588  1613 I ActivityManager: Force stopping net.alaindonesia.silectric appid=10084 user=0: pkg removed
+11-19 22:45:02.470  2017  2017 I GeofencerStateMachine: removeGeofences: removeRequest=RemoveGeofencingRequest[REMOVE_ALL packageName=net.alaindonesia.silectric]
+11-19 22:45:02.481  1788  1788 D CarrierSvcBindHelper: No carrier app for: 0
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: failed to remove uid from uid_cputime module
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: java.io.FileNotFoundException: /proc/uid_cputime/remove_uid_range (No such file or directory)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileOutputStream.open(Native Method)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:108)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileWriter.<init>(FileWriter.java:63)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.internal.os.KernelUidCpuTimeReader.removeUid(KernelUidCpuTimeReader.java:158)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.internal.os.BatteryStatsImpl.removeUidStatsLocked(BatteryStatsImpl.java:9805)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.am.BatteryStatsService.removeUid(BatteryStatsService.java:291)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.am.ActivityManagerService.broadcastIntentLocked(ActivityManagerService.java:17857)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.am.ActivityManagerService.broadcastIntent(ActivityManagerService.java:18346)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.pm.PackageManagerService$8.run(PackageManagerService.java:11407)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at android.os.Handler.handleCallback(Handler.java:751)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at android.os.Looper.loop(Looper.java:154)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-19 22:45:02.483  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+11-19 22:45:02.487  1588  1621 I InputReader: Reconfiguring input devices.  changes=0x00000010
+11-19 22:45:02.531  3134  3134 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1385 android.content.ContextWrapper.startService:613 android.content.ContextWrapper.startService:613 com.android.keychain.KeyChainBroadcastReceiver.onReceive:12 android.app.ActivityThread.handleReceiver:3011 
+11-19 22:45:02.545  2271  6443 D VoicemailCleanupService: Cleaning up data for package: net.alaindonesia.silectric
+11-19 22:45:02.550  2320  2320 W Finsky  : [1] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:02.580  2017  2017 I WearableService: Wearable Services not starting - Wear is not available on this device.
+11-19 22:45:02.589  2017  2030 D WearableService: onGetService - Wear is not available on this device.
+11-19 22:45:02.590  2320  2320 E Finsky  : [1] com.google.android.finsky.wear.bk.a(752): onConnectionFailed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+11-19 22:45:02.590  2320  2320 I Finsky  : [1] com.google.android.finsky.wear.WearSupportService.a(6355): Dropping command=auto_uninstall due to Gms not connected
+11-19 22:45:02.642  1653  1742 I LatinIME:LogUtils: Dictionary info: dictionary = main:en ; version = 54 ; date = 1414726273
+11-19 22:45:02.674  2101  6452 I UpdateIcingCorporaServi: Updating corpora: APPS=net.alaindonesia.silectric, CONTACTS=MAYBE
+11-19 22:45:02.737  2176  5787 I ContentMaintenance: Pruning caches...
+11-19 22:45:02.756  2176  5287 I Icing   : doRemovePackageData net.alaindonesia.silectric
+11-19 22:45:02.757  2176  6457 D Wear_Controller: Received broadcast action=android.intent.action.PACKAGE_REMOVED and uri=net.alaindonesia.silectric
+11-19 22:45:02.759  2176  6457 I LocationSettingsChecker: Removing dialog suppression flag for package net.alaindonesia.silectric
+11-19 22:45:02.767  2176  5787 I ContentMaintenance: Internal cache bytes used: 0; limit: 100000000; download size: 0
+11-19 22:45:02.774  2176  5787 I ContentMaintenance: Cache pruning complete.
+11-19 22:45:02.776  2176  5787 I ContentMaintenance: Beginning garbage collection.
+11-19 22:45:02.778  2176  5787 I RealtimeCacheCleanup: Beginning Realtime garbage collection.
+11-19 22:45:02.792  2176  2437 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.googlequicksearchbox componentName=null serviceId=36
+11-19 22:45:02.798  6437  6437 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:02.798  2176  5787 I RealtimeCacheCleanup: Finished Realtime garbage collection.
+11-19 22:45:02.798  2176  5787 I ContentMaintenance: Finished garbage collection.
+11-19 22:45:02.800  6437  6437 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:02.807  2176  2438 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=32
+11-19 22:45:02.809  2176  2437 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=36
+11-19 22:45:02.811  2101  6452 I UpdateIcingCorporaServi: UpdateCorporaTask done [took 137 ms] updated apps [took 137 ms] 
+11-19 22:45:02.819  6437  6437 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:02.822  6437  6437 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:02.823  2176  5287 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload true
+11-19 22:45:02.826  2176  5287 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:02.831  2176  5287 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:02.834  6437  6437 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:02.834  6437  6437 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:02.835  6437  6437 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:02.842  6437  6437 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:02.847  6437  6437 I art     : System.exit called, status: 0
+11-19 22:45:02.848  6437  6437 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:02.881  1354  1354 I         : free_cache(2027196) avail 1967226880
+11-19 22:45:03.083  1588  1613 I PackageManager.DexOptimizer: Running dexopt (dex2oat) on: /data/app/vmdl71655893.tmp/base.apk pkg=net.alaindonesia.silectric isa=x86 vmSafeMode=false debuggable=true target-filter=interpret-only oatDir = /data/app/vmdl71655893.tmp/oat sharedLibraries=null
+11-19 22:45:03.095  6491  6491 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:03.095  6491  6491 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+11-19 22:45:03.095  6491  6491 W dex2oat : /system/bin/dex2oat --zip-fd=6 --zip-location=base.apk --oat-fd=7 --oat-location=/data/app/vmdl71655893.tmp/oat/x86/base.odex --instruction-set=x86 --instruction-set-variant=x86 --instruction-set-features=default --runtime-arg -Xms64m --runtime-arg -Xmx512m --compiler-filter=interpret-only --swap-fd=9 --debuggable
+11-19 22:45:03.096  6491  6491 I dex2oat : /system/bin/dex2oat --compiler-filter=interpret-only --debuggable
+11-19 22:45:03.219  6491  6491 W dex2oat : Before Android 4.1, method int android.support.v7.widget.ListViewCompat.lookForSelectablePosition(int, boolean) would have incorrectly overridden the package-private method in android.widget.ListView
+11-19 22:45:03.231  6491  6493 W dex2oat : Before Android 4.1, method android.graphics.PorterDuffColorFilter android.support.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
+11-19 22:45:03.468  6491  6491 I dex2oat : dex2oat took 373.199ms (threads: 2) arena alloc=1632B (1632B) java alloc=3MB (3245552B) native alloc=4MB (4688920B) free=2MB (2126824B)
+11-19 22:45:03.541  1588  1613 V BackupManagerService: restoreAtInstall pkg=net.alaindonesia.silectric token=11 restoreSet=0
+11-19 22:45:03.541  1588  1613 V BackupManagerService: Finishing install immediately
+11-19 22:45:03.546  1588  1613 I art     : Starting a blocking GC Explicit
+11-19 22:45:03.569  1588  1613 I art     : Explicit concurrent mark sweep GC freed 17665(1033KB) AllocSpace objects, 7(204KB) LOS objects, 25% free, 11MB/15MB, paused 326us total 22.689ms
+11-19 22:45:03.569  1354  1354 E         : Couldn't opendir /data/app/vmdl71655893.tmp: No such file or directory
+11-19 22:45:03.583  1588  1621 I InputReader: Reconfiguring input devices.  changes=0x00000010
+11-19 22:45:03.589  1788  1788 D CarrierSvcBindHelper: No carrier app for: 0
+11-19 22:45:03.589  1788  1788 D CarrierConfigLoader: mHandler: 9 phoneId: 0
+11-19 22:45:03.639  2320  2320 I Finsky  : [1] com.google.android.finsky.utils.PermissionPolicies$PermissionPolicyService.onStartCommand(117): post-install permissions check for net.alaindonesia.silectric
+11-19 22:45:03.639  2320  2320 W Finsky  : [1] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:03.670  2176  6465 D Wear_Controller: Received broadcast action=android.intent.action.PACKAGE_ADDED and uri=net.alaindonesia.silectric
+11-19 22:45:03.696  2101  6499 I UpdateIcingCorporaServi: Updating corpora: APPS=net.alaindonesia.silectric, CONTACTS=MAYBE
+11-19 22:45:03.723  2320  2320 I Finsky  : [1] com.google.android.finsky.utils.bh.run(2302): Package state data is missing for net.alaindonesia.silectric
+11-19 22:45:03.724  2320  2320 W Finsky  : [1] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:03.729  2176  2437 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=36
+11-19 22:45:03.730  2176  2438 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=32
+11-19 22:45:03.737  2176  6091 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:03.743  2176  6091 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:03.747  2176  2438 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.googlequicksearchbox componentName=null serviceId=36
+11-19 22:45:03.755  2176  5287 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload true
+11-19 22:45:03.761  2101  6499 I UpdateIcingCorporaServi: UpdateCorporaTask done [took 65 ms] updated apps [took 65 ms] 
+11-19 22:45:03.840  6494  6494 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:03.842  6494  6494 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:03.843  2176  5287 I Icing   : Indexing F2EF1948327B39903DF2FFE084CE5A5E43C5BFBD from com.google.android.googlequicksearchbox
+11-19 22:45:03.859  6494  6494 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:03.862  6494  6494 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:03.873  6494  6494 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:03.873  6494  6494 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:03.873  6494  6494 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:03.880  6494  6494 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:03.886  6494  6494 I art     : System.exit called, status: 0
+11-19 22:45:03.886  6494  6494 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:03.906  2176  5287 I Icing   : Indexing D32915E6F5B822A0D17C3C027CE6B10D07C3D07B from com.google.android.gms
+11-19 22:45:03.936  2176  5287 I Icing   : Indexing done F2EF1948327B39903DF2FFE084CE5A5E43C5BFBD
+11-19 22:45:03.937  2176  5287 I Icing   : Indexing done D32915E6F5B822A0D17C3C027CE6B10D07C3D07B
+11-19 22:45:04.147  6521  6521 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:04.148  6521  6521 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:04.170  6521  6521 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:04.173  6521  6521 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:04.187  6521  6521 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:04.187  6521  6521 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:04.188  6521  6521 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:04.194  6521  6521 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:04.201  6521  6521 I art     : System.exit called, status: 0
+11-19 22:45:04.201  6521  6521 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:04.220  1588  1601 I ActivityManager: Force stopping net.alaindonesia.silectric.test appid=10085 user=-1: deletePackageX
+11-19 22:45:04.220  1588  1601 I ActivityManager: Killing 4178:net.alaindonesia.silectric.test/u0a85 (adj 904): stop net.alaindonesia.silectric.test
+11-19 22:45:04.220  1588  1601 D ActivityManager: cleanUpApplicationRecord -- 4178
+11-19 22:45:04.243  1588  1613 I art     : Starting a blocking GC Explicit
+11-19 22:45:04.265  1588  1613 I art     : Explicit concurrent mark sweep GC freed 39272(2MB) AllocSpace objects, 10(200KB) LOS objects, 25% free, 11MB/15MB, paused 287us total 21.361ms
+11-19 22:45:04.271  1588  1613 I ActivityManager: Force stopping net.alaindonesia.silectric.test appid=10085 user=0: pkg removed
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: failed to remove uid from uid_cputime module
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: java.io.FileNotFoundException: /proc/uid_cputime/remove_uid_range (No such file or directory)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileOutputStream.open(Native Method)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileOutputStream.<init>(FileOutputStream.java:108)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at java.io.FileWriter.<init>(FileWriter.java:63)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.internal.os.KernelUidCpuTimeReader.removeUid(KernelUidCpuTimeReader.java:158)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.internal.os.BatteryStatsImpl.removeUidStatsLocked(BatteryStatsImpl.java:9805)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.am.BatteryStatsService.removeUid(BatteryStatsService.java:291)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.am.ActivityManagerService.broadcastIntentLocked(ActivityManagerService.java:17857)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.am.ActivityManagerService.broadcastIntent(ActivityManagerService.java:18346)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.pm.PackageManagerService$8.run(PackageManagerService.java:11407)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at android.os.Handler.handleCallback(Handler.java:751)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at android.os.Looper.loop(Looper.java:154)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-19 22:45:04.275  1588  1613 E KernelUidCpuTimeReader: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+11-19 22:45:04.277  2017  2017 I GeofencerStateMachine: removeGeofences: removeRequest=RemoveGeofencingRequest[REMOVE_ALL packageName=net.alaindonesia.silectric.test]
+11-19 22:45:04.286  1588  1621 I InputReader: Reconfiguring input devices.  changes=0x00000010
+11-19 22:45:04.298  1788  1788 D CarrierSvcBindHelper: No carrier app for: 0
+11-19 22:45:04.331  3134  3134 W ContextImpl: Calling a method in the system process without a qualified user: android.app.ContextImpl.startService:1385 android.content.ContextWrapper.startService:613 android.content.ContextWrapper.startService:613 com.android.keychain.KeyChainBroadcastReceiver.onReceive:12 android.app.ActivityThread.handleReceiver:3011 
+11-19 22:45:04.344  2271  6543 D VoicemailCleanupService: Cleaning up data for package: net.alaindonesia.silectric.test
+11-19 22:45:04.356  2320  2320 W Finsky  : [1] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:04.364  2017  2492 D WearableService: onGetService - Wear is not available on this device.
+11-19 22:45:04.365  2320  2320 E Finsky  : [1] com.google.android.finsky.wear.bk.a(752): onConnectionFailed: ConnectionResult{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+11-19 22:45:04.365  2320  2320 I Finsky  : [1] com.google.android.finsky.wear.WearSupportService.a(6355): Dropping command=auto_uninstall due to Gms not connected
+11-19 22:45:04.396  2176  6464 D Wear_Controller: Received broadcast action=android.intent.action.PACKAGE_REMOVED and uri=net.alaindonesia.silectric.test
+11-19 22:45:04.398  2176  6464 I LocationSettingsChecker: Removing dialog suppression flag for package net.alaindonesia.silectric.test
+11-19 22:45:04.422  2176  5786 I Icing   : doRemovePackageData net.alaindonesia.silectric.test
+11-19 22:45:04.428  2176  2438 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=36
+11-19 22:45:04.430  2176  2437 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=32
+11-19 22:45:04.461  2101  6551 I UpdateIcingCorporaServi: Updating corpora: APPS=net.alaindonesia.silectric.test, CONTACTS=MAYBE
+11-19 22:45:04.479  2176  6552 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:04.480  2101  6551 I UpdateIcingCorporaServi: UpdateCorporaTask done [took 20 ms] updated apps [took 20 ms] 
+11-19 22:45:04.491  2176  6552 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:04.517  1653  1742 I LatinIME:LogUtils: Dictionary info: dictionary = main:en ; version = 54 ; date = 1414726273
+11-19 22:45:04.628  6538  6538 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:04.630  6538  6538 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:04.646  6538  6538 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:04.649  6538  6538 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:04.660  6538  6538 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:04.660  6538  6538 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:04.660  6538  6538 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:04.667  6538  6538 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:04.672  6538  6559 W MessageQueue: Handler (android.os.Handler) {8f751e2} sending message to a Handler on a dead thread
+11-19 22:45:04.672  6538  6559 W MessageQueue: java.lang.IllegalStateException: Handler (android.os.Handler) {8f751e2} sending message to a Handler on a dead thread
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.MessageQueue.enqueueMessage(MessageQueue.java:543)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.Handler.enqueueMessage(Handler.java:643)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.Handler.sendMessageAtTime(Handler.java:612)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.Handler.sendMessageDelayed(Handler.java:582)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.Handler.post(Handler.java:338)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.ResultReceiver$MyResultReceiver.send(ResultReceiver.java:57)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at com.android.internal.os.IResultReceiver$Stub.onTransact(IResultReceiver.java:58)
+11-19 22:45:04.672  6538  6559 W MessageQueue: 	at android.os.Binder.execTransact(Binder.java:565)
+11-19 22:45:04.672  6538  6538 I art     : System.exit called, status: 0
+11-19 22:45:04.672  6538  6538 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:04.706  1354  1354 I         : free_cache(609383) avail 1963716608
+11-19 22:45:04.761  1588  1613 I PackageManager.DexOptimizer: Running dexopt (dex2oat) on: /data/app/vmdl1055697285.tmp/base.apk pkg=net.alaindonesia.silectric.test isa=x86 vmSafeMode=false debuggable=false target-filter=interpret-only oatDir = /data/app/vmdl1055697285.tmp/oat sharedLibraries=/system/framework/android.test.runner.jar:/system/framework/com.google.android.maps.jar
+11-19 22:45:04.772  6571  6571 W dex2oat : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:04.772  6571  6571 W dex2oat : Mismatch between dex2oat instruction set features (ISA: X86 Feature string: smp,-ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) and those of dex2oat executable (ISA: X86 Feature string: smp,ssse3,-sse4.1,-sse4.2,-avx,-avx2,-lock_add,-popcnt) for the command line:
+11-19 22:45:04.772  6571  6571 W dex2oat : /system/bin/dex2oat --zip-fd=6 --zip-location=base.apk --oat-fd=7 --oat-location=/data/app/vmdl1055697285.tmp/oat/x86/base.odex --instruction-set=x86 --instruction-set-variant=x86 --instruction-set-features=default --runtime-arg -Xms64m --runtime-arg -Xmx512m --compiler-filter=interpret-only --swap-fd=9 --runtime-arg -classpath --runtime-arg /system/framework/android.test.runner.jar:/system/framework/com.google.android.maps.jar
+11-19 22:45:04.772  6571  6571 I dex2oat : /system/bin/dex2oat --compiler-filter=interpret-only
+11-19 22:45:04.783  2176  5787 I Icing   : Indexing D32915E6F5B822A0D17C3C027CE6B10D07C3D07B from com.google.android.gms
+11-19 22:45:04.783  2176  5787 I Icing   : Indexing done D32915E6F5B822A0D17C3C027CE6B10D07C3D07B
+11-19 22:45:04.784  2176  5787 I Icing   : Indexing F2EF1948327B39903DF2FFE084CE5A5E43C5BFBD from com.google.android.googlequicksearchbox
+11-19 22:45:04.788  2176  5787 I Icing   : Indexing done F2EF1948327B39903DF2FFE084CE5A5E43C5BFBD
+11-19 22:45:04.967  6571  6571 I dex2oat : dex2oat took 195.532ms (threads: 2) arena alloc=174KB (178288B) java alloc=1218KB (1247408B) native alloc=2MB (2361168B) free=1790KB (1833136B)
+11-19 22:45:04.995  1588  1613 W PackageManager: Not granting permission android.permission.ACCESS_MOCK_LOCATION to package net.alaindonesia.silectric.test (protectionLevel=2 flags=0x1818be44)
+11-19 22:45:05.021  1588  1613 V BackupManagerService: restoreAtInstall pkg=net.alaindonesia.silectric.test token=12 restoreSet=0
+11-19 22:45:05.021  1588  1613 V BackupManagerService: Finishing install immediately
+11-19 22:45:05.021  1588  1613 I art     : Starting a blocking GC Explicit
+11-19 22:45:05.042  1588  1613 I art     : Explicit concurrent mark sweep GC freed 6089(429KB) AllocSpace objects, 4(80KB) LOS objects, 25% free, 11MB/15MB, paused 288us total 20.512ms
+11-19 22:45:05.042  1354  1354 E         : Couldn't opendir /data/app/vmdl1055697285.tmp: No such file or directory
+11-19 22:45:05.053  1588  1621 I InputReader: Reconfiguring input devices.  changes=0x00000010
+11-19 22:45:05.063  1788  1788 D CarrierSvcBindHelper: No carrier app for: 0
+11-19 22:45:05.063  1788  1788 D CarrierConfigLoader: mHandler: 9 phoneId: 0
+11-19 22:45:05.091  2320  2320 I Finsky  : [1] com.google.android.finsky.utils.PermissionPolicies$PermissionPolicyService.onStartCommand(117): post-install permissions check for net.alaindonesia.silectric.test
+11-19 22:45:05.101  2320  2320 W Finsky  : [1] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:05.113  2176  6454 I FontsPackageChangeOp: Package net.alaindonesia.silectric.test has no metadata
+11-19 22:45:05.115  2176  6454 D Wear_Controller: Received broadcast action=android.intent.action.PACKAGE_ADDED and uri=net.alaindonesia.silectric.test
+11-19 22:45:05.132  2320  2320 I Finsky  : [1] com.google.android.finsky.utils.bh.run(2302): Package state data is missing for net.alaindonesia.silectric.test
+11-19 22:45:05.132  2320  2320 W Finsky  : [1] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:05.134  2176  2438 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=32
+11-19 22:45:05.136  2176  2437 I Icing   : IndexChimeraService.getServiceInterface callingPackage=com.google.android.gms componentName=AppsCorpus serviceId=36
+11-19 22:45:05.139  2101  6580 I UpdateIcingCorporaServi: Updating corpora: APPS=net.alaindonesia.silectric.test, CONTACTS=MAYBE
+11-19 22:45:05.149  2101  6580 I UpdateIcingCorporaServi: UpdateCorporaTask done [took 10 ms] updated apps [took 10 ms] 
+11-19 22:45:05.196  2176  5786 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:05.201  2176  5786 I Icing   : Usage reports ok 0, Failed Usage reports 0, indexed 0, rejected 0, imm upload false
+11-19 22:45:05.309  6574  6574 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:05.311  6574  6574 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:05.334  6574  6574 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:05.339  6574  6574 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:05.357  6574  6574 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:05.357  6574  6574 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:05.358  6574  6574 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:05.367  6574  6574 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:05.372  6574  6574 I art     : System.exit called, status: 0
+11-19 22:45:05.372  6574  6574 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:05.532  2176  5786 I Icing   : Indexing D32915E6F5B822A0D17C3C027CE6B10D07C3D07B from com.google.android.gms
+11-19 22:45:05.533  2176  5786 I Icing   : Indexing done D32915E6F5B822A0D17C3C027CE6B10D07C3D07B
+11-19 22:45:05.634  6600  6600 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:05.636  6600  6600 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:05.659  6600  6600 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:05.663  6600  6600 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:05.679  6600  6600 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:05.679  6600  6600 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:05.680  6600  6600 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:05.687  6600  6600 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:05.693  6600  6600 I art     : System.exit called, status: 0
+11-19 22:45:05.693  6600  6600 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:05.916  6612  6612 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:05.917  6612  6612 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:05.939  6612  6612 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:05.942  6612  6612 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:05.956  6612  6612 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:05.956  6612  6612 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:05.957  6612  6612 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:05.965  6612  6612 D AndroidRuntime: Calling main entry com.android.commands.pm.Pm
+11-19 22:45:05.971  6612  6612 I art     : System.exit called, status: 0
+11-19 22:45:05.971  6612  6612 I AndroidRuntime: VM exiting with result code 0.
+11-19 22:45:06.193  6624  6624 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:06.194  6624  6624 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:06.211  6624  6624 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:06.214  6624  6624 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:06.225  6624  6624 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:06.225  6624  6624 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:06.226  6624  6624 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:06.232  2176  5786 I Icing   : Indexing D32915E6F5B822A0D17C3C027CE6B10D07C3D07B from com.google.android.gms
+11-19 22:45:06.233  6624  6624 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-19 22:45:06.233  2176  5786 I Icing   : Indexing done D32915E6F5B822A0D17C3C027CE6B10D07C3D07B
+11-19 22:45:06.234  1588  1930 I ActivityManager: Force stopping net.alaindonesia.silectric appid=10096 user=0: start instr
+11-19 22:45:06.238  6634  6634 I art     : Not late-enabling -Xcheck:jni (already on)
+11-19 22:45:06.238  6634  6634 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:06.245  1588  1930 I ActivityManager: Start proc 6634:net.alaindonesia.silectric/u0a96 for added application net.alaindonesia.silectric
+11-19 22:45:06.245  6624  6624 D AndroidRuntime: Shutting down VM
+11-19 22:45:06.252  6634  6634 W System  : ClassLoader referenced unknown path: /data/app/net.alaindonesia.silectric.test-1/lib/x86
+11-19 22:45:06.252  6634  6634 W System  : ClassLoader referenced unknown path: /data/app/net.alaindonesia.silectric-1/lib/x86
+11-19 22:45:06.255  6634  6634 W System  : ClassLoader referenced unknown path: 
+11-19 22:45:06.257  6634  6634 I System.out: Calabash did not load Mono. This is only a problem if you are trying to test a Mono application
+11-19 22:45:06.260  1588  1832 D VoldConnector: SND -> {31 volume mkdirs /storage/emulated/0/Android/data/net.alaindonesia.silectric/cache/}
+11-19 22:45:06.261  1588  1623 D VoldConnector: RCV <- {200 31 Command succeeded}
+11-19 22:45:06.263  1588  1599 D VoldConnector: SND -> {32 volume mkdirs /storage/15FD-3318/Android/data/net.alaindonesia.silectric/cache/}
+11-19 22:45:06.265  1588  1623 D VoldConnector: RCV <- {200 32 Command succeeded}
+11-19 22:45:06.265  6634  6634 I System.out: External cache dir: /storage/emulated/0/Android/data/net.alaindonesia.silectric/cache
+11-19 22:45:06.265  6634  6634 I System.out: Deleting external cache dir...
+11-19 22:45:06.266  6634  6634 I System.out: Deleting: /storage/emulated/0/Android/data/net.alaindonesia.silectric/cache
+11-19 22:45:06.266  6634  6634 I System.out: Cache dir: /data/user/0/net.alaindonesia.silectric/cache
+11-19 22:45:06.266  6634  6634 I System.out: Deleting cache dir...
+11-19 22:45:06.266  6634  6634 I System.out: Deleting: /data/user/0/net.alaindonesia.silectric/cache
+11-19 22:45:06.266  6634  6634 I System.out: External files dir: /storage/emulated/0/Android/data/net.alaindonesia.silectric/files
+11-19 22:45:06.266  6634  6634 I System.out: Deleting external files dir...
+11-19 22:45:06.267  6634  6634 I System.out: Deleting: /storage/emulated/0/Android/data/net.alaindonesia.silectric/files
+11-19 22:45:06.267  6634  6634 I System.out: Files dir: /data/user/0/net.alaindonesia.silectric/files
+11-19 22:45:06.267  6634  6634 I System.out: Deleting files dir...
+11-19 22:45:06.267  6634  6634 I System.out: Deleting: /data/user/0/net.alaindonesia.silectric/files
+11-19 22:45:06.267  6634  6634 I System.out: Data dir: /data/user/0/net.alaindonesia.silectric
+11-19 22:45:06.269  1588  1648 I ActivityManager: START u0 {flg=0x10000000 cmp=net.alaindonesia.silectric.test/sh.calaba.instrumentationbackend.StatusReporterActivity (has extras)} from uid 10096 on display 0
+11-19 22:45:06.278  6649  6649 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:06.283  1588  1943 I ActivityManager: Start proc 6649:net.alaindonesia.silectric.test/u0a97 for activity net.alaindonesia.silectric.test/sh.calaba.instrumentationbackend.StatusReporterActivity
+11-19 22:45:06.310  6649  6649 W System  : ClassLoader referenced unknown path: /data/app/net.alaindonesia.silectric.test-1/lib/x86
+11-19 22:45:06.315  1308  1315 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-19 22:45:06.320  6649  6649 I System.out: Failure file: /data/user/0/net.alaindonesia.silectric.test/files/calabash_failure.out
+11-19 22:45:06.320  6649  6649 I System.out: Finished file: /data/user/0/net.alaindonesia.silectric.test/files/calabash_finished.out
+11-19 22:45:06.321  6649  6649 I System.out: method: report-finished
+11-19 22:45:06.321  6649  6649 I System.out: Finished state: SUCCESSFUL
+11-19 22:45:06.344  1588  1648 I WindowManager: Failed to capture screenshot of Token{4393934 ActivityRecord{d21f407 u0 net.alaindonesia.silectric.test/sh.calaba.instrumentationbackend.StatusReporterActivity t24 f}} appWin=Window{8b677b8 u0 Starting net.alaindonesia.silectric.test} drawState=1
+11-19 22:45:06.354  1588  1930 I WindowManager: Destroying surface Surface(name=Starting net.alaindonesia.silectric.test) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.AppWindowToken.removeAllWindows:530 com.android.server.wm.AppWindowToken.removeAppFromTaskLocked:326 
+11-19 22:45:06.360  1588  1608 W WindowManager: Failed looking up window
+11-19 22:45:06.360  1588  1608 W WindowManager: java.lang.IllegalArgumentException: Requested window android.view.ViewRootImpl$W@52ca1b does not exist
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:9107)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:9098)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.finishDrawingWindow(WindowManagerService.java:3148)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at com.android.server.wm.Session.finishDrawing(Session.java:258)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.performDraw(ViewRootImpl.java:2653)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:2211)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.doTraversal(ViewRootImpl.java:1246)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.ViewRootImpl$TraversalRunnable.run(ViewRootImpl.java:6301)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:871)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.Choreographer.doCallbacks(Choreographer.java:683)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.Choreographer.doFrame(Choreographer.java:619)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:857)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.os.Handler.handleCallback(Handler.java:751)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.os.Looper.loop(Looper.java:154)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-19 22:45:06.360  1588  1608 W WindowManager: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+11-19 22:45:06.361  1588  1608 W WindowManager: Failed looking up window
+11-19 22:45:06.361  1588  1608 W WindowManager: java.lang.IllegalArgumentException: Requested window android.view.ViewRootImpl$W@52ca1b does not exist
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:9107)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:9098)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.finishDrawingWindow(WindowManagerService.java:3148)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at com.android.server.wm.Session.finishDrawing(Session.java:258)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.performDraw(ViewRootImpl.java:2653)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.performTraversals(ViewRootImpl.java:2211)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.doTraversal(ViewRootImpl.java:1246)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.ViewRootImpl$TraversalRunnable.run(ViewRootImpl.java:6301)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.Choreographer$CallbackRecord.run(Choreographer.java:871)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.Choreographer.doCallbacks(Choreographer.java:683)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.Choreographer.doFrame(Choreographer.java:619)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:857)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.os.Handler.handleCallback(Handler.java:751)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.os.Looper.loop(Looper.java:154)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-19 22:45:06.361  1588  1608 W WindowManager: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+11-19 22:45:06.363  1588  1608 W WindowManager: Failed looking up window
+11-19 22:45:06.363  1588  1608 W WindowManager: java.lang.IllegalArgumentException: Requested window android.view.ViewRootImpl$W@52ca1b does not exist
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:9107)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:9098)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at com.android.server.wm.WindowManagerService.removeWindow(WindowManagerService.java:2302)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at com.android.server.wm.Session.remove(Session.java:202)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.dispatchDetachedFromWindow(ViewRootImpl.java:3286)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at android.view.ViewRootImpl.doDie(ViewRootImpl.java:5881)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at android.view.ViewRootImpl$ViewRootHandler.handleMessage(ViewRootImpl.java:3622)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at android.os.Handler.dispatchMessage(Handler.java:102)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at android.os.Looper.loop(Looper.java:154)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at android.os.HandlerThread.run(HandlerThread.java:61)
+11-19 22:45:06.363  1588  1608 W WindowManager: 	at com.android.server.ServiceThread.run(ServiceThread.java:46)
+11-19 22:45:06.367  1588  1682 W InputMethodManagerService: Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@8691682 attribute=null, token = android.os.BinderProxy@b286088
+11-19 22:45:08.508  6667  6667 D AndroidRuntime: >>>>>> START com.android.internal.os.RuntimeInit uid 2000 <<<<<<
+11-19 22:45:08.510  6667  6667 D AndroidRuntime: CheckJNI is ON
+11-19 22:45:08.526  6667  6667 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:08.529  6667  6667 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+11-19 22:45:08.539  6667  6667 E memtrack: Couldn't load memtrack module (No such file or directory)
+11-19 22:45:08.539  6667  6667 E android.os.Debug: failed to load memtrack module: -2
+11-19 22:45:08.540  6667  6667 I Radio-JNI: register_android_hardware_Radio DONE
+11-19 22:45:08.547  6667  6667 D AndroidRuntime: Calling main entry com.android.commands.am.Am
+11-19 22:45:08.549  1588  1598 I ActivityManager: Force stopping net.alaindonesia.silectric appid=10096 user=0: start instr
+11-19 22:45:08.549  1588  1598 I ActivityManager: Killing 6634:net.alaindonesia.silectric/u0a96 (adj 0): stop net.alaindonesia.silectric
+11-19 22:45:08.549  1588  1598 D ActivityManager: cleanUpApplicationRecord -- 6634
+11-19 22:45:08.551  1588  1598 W ActivityManager: Crash of app net.alaindonesia.silectric running instrumentation ComponentInfo{net.alaindonesia.silectric.test/sh.calaba.instrumentationbackend.ClearAppData2}
+11-19 22:45:08.551  1588  1598 I ActivityManager: Force stopping net.alaindonesia.silectric appid=10096 user=0: finished inst
+11-19 22:45:08.555  6677  6677 I art     : Not late-enabling -Xcheck:jni (already on)
+11-19 22:45:08.555  6677  6677 W art     : Unexpected CPU variant for X86 using defaults: x86
+11-19 22:45:08.562  1588  1598 I ActivityManager: Start proc 6677:net.alaindonesia.silectric/u0a96 for added application net.alaindonesia.silectric
+11-19 22:45:08.562  6667  6667 D AndroidRuntime: Shutting down VM
+11-19 22:45:08.569  6677  6677 W System  : ClassLoader referenced unknown path: /data/app/net.alaindonesia.silectric.test-1/lib/x86
+11-19 22:45:08.570  6677  6677 W System  : ClassLoader referenced unknown path: /data/app/net.alaindonesia.silectric-1/lib/x86
+11-19 22:45:08.574  6677  6677 W System  : ClassLoader referenced unknown path: 
+11-19 22:45:08.580  6677  6677 I System.out: Main activity name automatically set to: net.alaindonesia.silectric.MainActivity
+11-19 22:45:08.581  6677  6677 I System.out: Calabash did not load Mono. This is only a problem if you are trying to test a Mono application
+11-19 22:45:08.581  6677  6677 I calabash: Test server port: 7102
+11-19 22:45:08.582  6677  6677 I InstrumentationBackend: Added:'NullAction', with key:'nullAction'
+11-19 22:45:08.582  6677  6677 I InstrumentationBackend: Added:'GetActivityOrientation', with key:'get_activity_orientation'
+11-19 22:45:08.582  6677  6677 I InstrumentationBackend: Added:'SetActivityOrientation', with key:'set_activity_orientation'
+11-19 22:45:08.582  6677  6677 I InstrumentationBackend: Added:'DpToDevicePixel', with key:'dp_to_device_pixel'
+11-19 22:45:08.582  6677  6677 I InstrumentationBackend: Added:'ClickOnScreen', with key:'click_on_screen'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'DoubleTapCoordinate', with key:'double_tap_coordinate'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'Drag', with key:'drag'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'DragCoordinates', with key:'drag_coordinates'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'LongPressCoordinate', with key:'long_press_coordinate'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'ResumeApplication', with key:'resume_application'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'Swipe', with key:'swipe'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'TouchCoordinates', with key:'touch_coordinate'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'ListActions', with key:'list_actions'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'SendTcp', with key:'send_tcp'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'PressElement', with key:'press_l10n_element'
+11-19 22:45:08.583  6677  6677 I InstrumentationBackend: Added:'WaitForElement', with key:'wait_for_l10n_element'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'FakeGPSLocation', with key:'set_gps_coordinates'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'GetMapBounds', with key:'get_map_bounds'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'GetMapCenter', with key:'get_map_center'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'GetMapMarker', with key:'get_map_marker'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'GetMapMarkers', with key:'get_map_markers'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'GetMapZoom', with key:'get_map_zoom'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'PanMapTo', with key:'pan_map_to'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'SetMapCenter', with key:'set_map_center'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'SetMapZoom', with key:'set_map_zoom'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'TapAwayFromMarkers', with key:'tap_map_away_from_markers'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'TapMapMarker', with key:'tap_map_marker_by_title'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'ClearPreferences', with key:'clear_preferences'
+11-19 22:45:08.584  6677  6677 I InstrumentationBackend: Added:'GetPreferences', with key:'get_preferences'
+11-19 22:45:08.591  6677  6677 I InstrumentationBackend: Added:'SetPreferences', with key:'set_preferences'
+11-19 22:45:08.591  6677  6677 I InstrumentationBackend: Added:'PressKey', with key:'press_key'
+11-19 22:45:08.591  6677  6677 I InstrumentationBackend: Added:'DeleteSurroundingText', with key:'delete_surrounding_text'
+11-19 22:45:08.591  6677  6677 I InstrumentationBackend: Added:'HideSoftKeyboard', with key:'hide_soft_keyboard'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'KeyboardEnterText', with key:'keyboard_enter_text'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'KeyboardKeyEvent', with key:'keyboard_key_event'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'PressUserActionButton', with key:'press_user_action_button'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'SetComposingRegion', with key:'set_composing_region'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'SetSelection', with key:'set_selection'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'AndroidSDKVersion', with key:'android_sdk_version'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'Version', with key:'version'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'GetActivityName', with key:'get_activity_name'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'IsCurrentActivityFocused', with key:'is_current_activity_focused'
+11-19 22:45:08.592  6677  6677 I InstrumentationBackend: Added:'ScrollToView', with key:'scroll_to_view'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'ViewConfiguration', with key:'view_configuration'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'DumpBodyHtml', with key:'dump_body_html'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'DumpHtml', with key:'dump_html'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'EnterTextByCssSelector', with key:'enter_text_by_selector'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'GetLoadProgress', with key:'get_load_progress'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'GetUrl', with key:'get_url'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'ScrollTo', with key:'scroll_to'
+11-19 22:45:08.593  6677  6677 I InstrumentationBackend: Added:'SetPropertyByCssSelector', with key:'set_property_by_css_selector'
+11-19 22:45:08.594  6677  6677 I calabash: Instantiating http server at 7102
+11-19 22:45:08.594  6677  6677 I System.out: HTTP Daemon listening on: 7102
+11-19 22:45:08.679  6677  6694 I System.out: URI: //ping
+11-19 22:45:08.679  6677  6694 I System.out: params: {json={}
+11-19 22:45:08.679  6677  6694 I System.out: }
+11-19 22:45:08.685  6677  6695 I System.out: URI: //ping
+11-19 22:45:08.686  6677  6695 I System.out: params: {json={}
+11-19 22:45:08.686  6677  6695 I System.out: }
+11-19 22:45:08.689  6677  6696 I System.out: URI: //ready
+11-19 22:45:08.689  6677  6696 I System.out: params: {json={}
+11-19 22:45:08.689  6677  6696 I System.out: }
+11-19 22:45:08.695  6677  6697 I System.out: URI: //
+11-19 22:45:08.696  6677  6697 I System.out: params: {json={"command":"version","arguments":[]}
+11-19 22:45:08.696  6677  6697 I System.out: }
+11-19 22:45:08.696  6677  6697 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:09 GMT, accept=*/*, host=127.0.0.1:34777, content-length=36, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:08.696  6677  6697 I System.out: params: {json={"command":"version","arguments":[]}
+11-19 22:45:08.696  6677  6697 I System.out: }
+11-19 22:45:08.696  6677  6697 I System.out: ProP json = {"command":"version","arguments":[]}
+11-19 22:45:08.696  6677  6697 I System.out: files: {}
+11-19 22:45:08.696  6677  6697 I System.out: command: {"command":"version","arguments":[]}
+11-19 22:45:08.701  6677  6697 I InstrumentationBackend: Got command:'Command:'Line:null,version', arguments:'[]'
+11-19 22:45:08.711  6677  6697 I System.out: result:{"bonusInformation":[],"message":"0.9.0","success":true}
+11-19 22:45:08.715  6677  6698 I System.out: URI: //start-application
+11-19 22:45:08.715  6677  6698 I System.out: params: {json={"intent":null}
+11-19 22:45:08.715  6677  6698 I System.out: }
+11-19 22:45:08.731  6677  6698 I calabash: execStartActivity 4
+11-19 22:45:08.732  1588  5701 I ActivityManager: START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=net.alaindonesia.silectric/.MainActivity} from uid 10096 on display 0
+11-19 22:45:08.742  6677  6677 I calabash: newActivity1
+11-19 22:45:08.746  6677  6699 I calabash: Activity is set in activity waiter. Invoking idle handlers
+11-19 22:45:08.751  6677  6677 W art     : Before Android 4.1, method android.graphics.PorterDuffColorFilter android.support.graphics.drawable.VectorDrawableCompat.updateTintFilter(android.graphics.PorterDuffColorFilter, android.content.res.ColorStateList, android.graphics.PorterDuff$Mode) would have incorrectly overridden the package-private method in android.graphics.drawable.Drawable
+11-19 22:45:08.773  1308  1313 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-19 22:45:08.816  2053  2130 D EGL_emulation: eglMakeCurrent: 0xa37fc6e0: ver 2 0 (tinfo 0xa37f1db0)
+11-19 22:45:08.834  6677  6677 I calabash: execStartActivity 4
+11-19 22:45:08.837  1588  1930 I ActivityManager: START u0 {cmp=net.alaindonesia.silectric/.OptionsActivity} from uid 10096 on display 0
+11-19 22:45:08.899  6677  6677 I calabash: newActivity1
+11-19 22:45:09.015  1308  1844 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 22:45:09.019  6677  6677 D         : HostConnection::get() New Host Connection established 0xa1b74300, tid 6677
+11-19 22:45:09.021  6677  6677 W         : Unrecognized GLES max version string in extensions: ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_dma_v1 
+11-19 22:45:09.052  6677  6703 D         : HostConnection::get() New Host Connection established 0xa1b74a80, tid 6703
+11-19 22:45:09.056  6677  6703 W         : Unrecognized GLES max version string in extensions: ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_dma_v1 
+11-19 22:45:09.060  6677  6703 I OpenGLRenderer: Initialized EGL, version 1.4
+11-19 22:45:09.060  6677  6703 D OpenGLRenderer: Swap behavior 1
+11-19 22:45:09.060  6677  6703 W OpenGLRenderer: Failed to choose config with EGL_SWAP_BEHAVIOR_PRESERVED, retrying without...
+11-19 22:45:09.060  6677  6703 D OpenGLRenderer: Swap behavior 0
+11-19 22:45:09.065  6677  6703 D EGL_emulation: eglCreateContext: 0xa60856c0: maj 2 min 0 rcv 2
+11-19 22:45:09.080  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:09.090  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:09.160  1588  1608 I ActivityManager: Displayed net.alaindonesia.silectric/.OptionsActivity: +266ms (total +420ms)
+11-19 22:45:09.348  1588  1608 I WindowManager: Destroying surface Surface(name=Starting net.alaindonesia.silectric) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-19 22:45:09.404  2017  2017 I WearableService: Wearable Services stopping
+11-19 22:45:09.566  1588  1598 I WindowManager: Destroying surface Surface(name=com.android.launcher3/com.android.launcher3.Launcher) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.AppWindowToken.notifyAppStopped:389 com.android.server.wm.WindowManagerService.notifyAppStopped:4463 com.android.server.am.ActivityStack.activityStoppedLocked:1252 com.android.server.am.ActivityManagerService.activityStopped:6903 
+11-19 22:45:11.165  6677  6706 I System.out: URI: //gesture
+11-19 22:45:11.165  6677  6706 I System.out: params: {json={"query_timeout":5.0,"gestures":[{"query_string":"android.widget.EditText index:0","touches":[{"x":50,"y":50,"offset_x":0,"offset_y":0,"wait":0.0,"time":0.2,"release":true,"query_string":null}]}]}
+11-19 22:45:11.165  6677  6706 I System.out: }
+11-19 22:45:11.449  1653  1653 W InputMethodService: Window size has been changed. This may cause jankiness of resizing window: -1 -> -2
+11-19 22:45:11.473  1653  1653 I LatinIME: Starting input. Cursor position = 0,0
+11-19 22:45:11.515  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:11.535  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:11.549  1667  1817 D EGL_emulation: eglMakeCurrent: 0xa1b73c60: ver 2 0 (tinfo 0xa1b62d30)
+11-19 22:45:11.602  1653  3581 D EGL_emulation: eglMakeCurrent: 0xa60855a0: ver 2 0 (tinfo 0xa6083690)
+11-19 22:45:13.068  6677  6682 I art     : Do partial code cache collection, code=28KB, data=30KB
+11-19 22:45:13.068  6677  6682 I art     : After code cache collection, code=28KB, data=30KB
+11-19 22:45:13.068  6677  6682 I art     : Increasing code cache capacity to 128KB
+11-19 22:45:13.068  6677  6712 I System.out: URI: //
+11-19 22:45:13.068  6677  6712 I System.out: params: {json={"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:13.068  6677  6712 I System.out: }
+11-19 22:45:13.068  6677  6712 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:14 GMT, accept=*/*, host=127.0.0.1:34777, content-length=47, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:13.068  6677  6712 I System.out: params: {json={"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:13.068  6677  6712 I System.out: }
+11-19 22:45:13.068  6677  6712 I System.out: ProP json = {"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:13.068  6677  6712 I System.out: files: {}
+11-19 22:45:13.068  6677  6712 I System.out: command: {"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:13.070  6677  6712 I InstrumentationBackend: Got command:'Command:'Line:null,set_selection', arguments:'[-1, -1]'
+11-19 22:45:13.079  6677  6712 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:14.569  6677  6713 I System.out: URI: //
+11-19 22:45:14.569  6677  6713 I System.out: params: {json={"command":"delete_surrounding_text","arguments":[-1,0]}
+11-19 22:45:14.569  6677  6713 I System.out: }
+11-19 22:45:14.569  6677  6713 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:15 GMT, accept=*/*, host=127.0.0.1:34777, content-length=56, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:14.569  6677  6713 I System.out: params: {json={"command":"delete_surrounding_text","arguments":[-1,0]}
+11-19 22:45:14.569  6677  6713 I System.out: }
+11-19 22:45:14.570  6677  6713 I System.out: ProP json = {"command":"delete_surrounding_text","arguments":[-1,0]}
+11-19 22:45:14.570  6677  6713 I System.out: files: {}
+11-19 22:45:14.570  6677  6713 I System.out: command: {"command":"delete_surrounding_text","arguments":[-1,0]}
+11-19 22:45:14.572  6677  6713 I InstrumentationBackend: Got command:'Command:'Line:null,delete_surrounding_text', arguments:'[-1, 0]'
+11-19 22:45:14.573  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:14.573  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:14.592  6677  6713 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:14.748  1588  1608 I WindowManager: Destroying surface Surface(name=PopupWindow:3c2ee41) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-19 22:45:16.071  6677  6714 I System.out: URI: //map
+11-19 22:45:16.071  6677  6714 I System.out: params: {json={"query":"android.widget.EditText index:0","operation":{"method_name":"query","arguments":[]}}
+11-19 22:45:16.071  6677  6714 I System.out: }
+11-19 22:45:17.472  6677  6715 I System.out: URI: //gesture
+11-19 22:45:17.473  6677  6715 I System.out: params: {json={"query_timeout":5.0,"gestures":[{"query_string":"android.widget.EditText index:0","touches":[{"x":50,"y":50,"offset_x":0,"offset_y":0,"wait":0.0,"time":0.2,"release":true,"query_string":null}]}]}
+11-19 22:45:17.473  6677  6715 I System.out: }
+11-19 22:45:19.375  6677  6716 I System.out: URI: //
+11-19 22:45:19.375  6677  6716 I System.out: params: {json={"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:19.375  6677  6716 I System.out: }
+11-19 22:45:19.375  6677  6716 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:20 GMT, accept=*/*, host=127.0.0.1:34777, content-length=47, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:19.375  6677  6716 I System.out: params: {json={"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:19.375  6677  6716 I System.out: }
+11-19 22:45:19.375  6677  6716 I System.out: ProP json = {"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:19.375  6677  6716 I System.out: files: {}
+11-19 22:45:19.375  6677  6716 I System.out: command: {"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:19.378  6677  6716 I InstrumentationBackend: Got command:'Command:'Line:null,set_selection', arguments:'[-1, -1]'
+11-19 22:45:19.390  6677  6716 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:20.976  6677  6721 I System.out: URI: //
+11-19 22:45:20.976  6677  6721 I System.out: params: {json={"command":"keyboard_enter_text","arguments":["99999999999999999999999999999999999999999999999999999"]}
+11-19 22:45:20.976  6677  6721 I System.out: }
+11-19 22:45:20.976  6677  6721 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:21 GMT, accept=*/*, host=127.0.0.1:34777, content-length=103, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:20.976  6677  6721 I System.out: params: {json={"command":"keyboard_enter_text","arguments":["99999999999999999999999999999999999999999999999999999"]}
+11-19 22:45:20.976  6677  6721 I System.out: }
+11-19 22:45:20.976  6677  6721 I System.out: ProP json = {"command":"keyboard_enter_text","arguments":["99999999999999999999999999999999999999999999999999999"]}
+11-19 22:45:20.977  6677  6721 I System.out: files: {}
+11-19 22:45:20.977  6677  6721 I System.out: command: {"command":"keyboard_enter_text","arguments":["99999999999999999999999999999999999999999999999999999"]}
+11-19 22:45:20.979  6677  6721 I InstrumentationBackend: Got command:'Command:'Line:null,keyboard_enter_text', arguments:'[99999999999999999999999999999999999999999999999999999]'
+11-19 22:45:20.979  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:20.979  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:21.011  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:21.011  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:21.035  6677  6721 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:21.395  2320  2356 W Finsky  : [134] com.google.android.finsky.FinskyApp.i(1468): No account configured on this device.
+11-19 22:45:21.395  2320  2356 I Finsky  : [134] com.google.android.finsky.c.e.run(1151): Replicating app states via AMAS.
+11-19 22:45:21.451  2320  2356 I Finsky  : [134] com.google.android.finsky.c.c.a(311): Completed 0 account content syncs with 0 successful.
+11-19 22:45:21.452  2320  2320 I Finsky  : [1] com.google.android.finsky.services.j.a(149): Installation state replication succeeded.
+11-19 22:45:22.878  6677  6725 I System.out: URI: //map
+11-19 22:45:22.878  6677  6725 I System.out: params: {json={"query":"* id:'saveElectricFeeButton'","operation":{"method_name":"query","arguments":[]}}
+11-19 22:45:22.878  6677  6725 I System.out: }
+11-19 22:45:22.889  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.889  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.889  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.890  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.891  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.891  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.894  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.895  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.895  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.895  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.897  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:22.898  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.879  6677  6726 I System.out: URI: //gesture
+11-19 22:45:23.879  6677  6726 I System.out: params: {json={"query_timeout":5.0,"gestures":[{"query_string":"* id:'saveElectricFeeButton'","touches":[{"x":50,"y":50,"offset_x":0,"offset_y":0,"wait":0.0,"time":0.2,"release":true,"query_string":null}]}]}
+11-19 22:45:23.880  6677  6726 I System.out: }
+11-19 22:45:23.890  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.890  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.891  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.891  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.891  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.892  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.893  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.894  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.894  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.894  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.894  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:23.895  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:24.155  1351  1392 W audio_hw_generic: Not supplying enough data to HAL, expected position 4371274 , only wrote 4371120
+11-19 22:45:24.176  6677  6682 I art     : Do partial code cache collection, code=54KB, data=62KB
+11-19 22:45:24.176  6677  6682 I art     : After code cache collection, code=54KB, data=62KB
+11-19 22:45:24.176  6677  6682 I art     : Increasing code cache capacity to 256KB
+11-19 22:45:24.263  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:24.286  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:24.345  1653  1653 W InputMethodService: Window size has been changed. This may cause jankiness of resizing window: -1 -> -2
+11-19 22:45:24.346  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:24.355  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:24.356  1653  3581 D EGL_emulation: eglMakeCurrent: 0xa60855a0: ver 2 0 (tinfo 0xa6083690)
+11-19 22:45:24.415  6677  6677 W IInputConnectionWrapper: finishComposingText on inactive InputConnection
+11-19 22:45:24.415  6677  6677 W IInputConnectionWrapper: finishComposingText on inactive InputConnection
+11-19 22:45:24.417  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:24.431  6677  6703 D OpenGLRenderer: endAllActiveAnimators on 0x947b2600 (RippleDrawable) with handle 0x93cc1cc0
+11-19 22:45:24.601  1588  1608 I WindowManager: Destroying surface Surface(name=InputMethod) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacementInner:429 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacementLoop:232 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacement:180 com.android.server.wm.WindowManagerService$H.handleMessage:8086 android.os.Handler.dispatchMessage:102 
+11-19 22:45:24.609  1588  1598 I WindowManager: Destroying surface Surface(name=net.alaindonesia.silectric/net.alaindonesia.silectric.OptionsActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowManagerService.removeWindowLocked:2311 com.android.server.wm.WindowManagerService.removeWindow:2306 com.android.server.wm.Session.remove:202 
+11-19 22:45:27.091  6677  6729 I System.out: URI: //
+11-19 22:45:27.091  6677  6729 I System.out: params: {json={"command":"press_key","arguments":["KEYCODE_MENU"]}
+11-19 22:45:27.091  6677  6729 I System.out: }
+11-19 22:45:27.091  6677  6729 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:28 GMT, accept=*/*, host=127.0.0.1:34777, content-length=52, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:27.091  6677  6729 I System.out: params: {json={"command":"press_key","arguments":["KEYCODE_MENU"]}
+11-19 22:45:27.091  6677  6729 I System.out: }
+11-19 22:45:27.092  6677  6729 I System.out: ProP json = {"command":"press_key","arguments":["KEYCODE_MENU"]}
+11-19 22:45:27.092  6677  6729 I System.out: files: {}
+11-19 22:45:27.092  6677  6729 I System.out: command: {"command":"press_key","arguments":["KEYCODE_MENU"]}
+11-19 22:45:27.094  6677  6729 I InstrumentationBackend: Got command:'Command:'Line:null,press_key', arguments:'[KEYCODE_MENU]'
+11-19 22:45:27.102  6677  6677 W art     : Before Android 4.1, method int android.support.v7.widget.ListViewCompat.lookForSelectablePosition(int, boolean) would have incorrectly overridden the package-private method in android.widget.ListView
+11-19 22:45:27.105  6677  6729 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:27.113  6677  6730 I System.out: URI: //map
+11-19 22:45:27.113  6677  6730 I System.out: params: {json={"query":"* marked:'Preferences'","operation":{"method_name":"query","arguments":[]}}
+11-19 22:45:27.113  6677  6730 I System.out: }
+11-19 22:45:27.163  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.180  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.180  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.181  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.183  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.184  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.187  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.187  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.189  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.190  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.191  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.192  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.193  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.193  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.194  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.194  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.194  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.195  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.195  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.196  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.197  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.197  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.197  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.198  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.199  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.199  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.201  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.202  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.203  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.225  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.229  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.233  6677  6731 I System.out: URI: //gesture
+11-19 22:45:27.233  6677  6731 I System.out: params: {json={"query_timeout":5.0,"gestures":[{"query_string":"* marked:'Preferences'","touches":[{"x":50,"y":50,"offset_x":0,"offset_y":0,"wait":0.0,"time":0.2,"release":true,"query_string":null}]}]}
+11-19 22:45:27.233  6677  6731 I System.out: }
+11-19 22:45:27.244  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.245  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.246  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.247  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.247  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.251  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.251  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.254  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.254  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.255  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.257  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.257  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.258  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.258  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.259  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.259  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.260  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.260  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.261  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.262  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.262  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.262  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.263  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.263  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.264  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.265  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.265  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.267  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:27.365  1351  1393 W audio_hw_generic: Not supplying enough data to HAL, expected position 4677226 , only wrote 4525200
+11-19 22:45:27.502  6677  6677 I calabash: execStartActivity 4
+11-19 22:45:27.503  1588  1929 I ActivityManager: START u0 {cmp=net.alaindonesia.silectric/.OptionsActivity} from uid 10096 on display 0
+11-19 22:45:27.505  1351  1392 W audio_hw_generic: Not supplying enough data to HAL, expected position 4525349 , only wrote 4525200
+11-19 22:45:27.526  6677  6677 I calabash: newActivity1
+11-19 22:45:27.526  6677  6732 I System.out: URI: //map
+11-19 22:45:27.526  6677  6732 I System.out: params: {json={"query":"android.widget.EditText id:'usage_fee_per_kwh_edit_text'","operation":{"method_name":"query","arguments":[]}}
+11-19 22:45:27.526  6677  6732 I System.out: }
+11-19 22:45:27.738  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.761  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.816  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.828  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.833  1588  1608 I ActivityManager: Displayed net.alaindonesia.silectric/.OptionsActivity: +323ms
+11-19 22:45:27.859  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:27.860  6677  6703 D OpenGLRenderer: endAllActiveAnimators on 0x93715880 (MenuPopupWindow$MenuDropDownListView) with handle 0x93cc1c60
+11-19 22:45:28.031  1588  1608 I WindowManager: Destroying surface Surface(name=PopupWindow:3152a8d) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.finishExit:516 com.android.server.wm.AppWindowAnimator.stepAnimationLocked:427 com.android.server.wm.WindowAnimator.updateAppWindowsLocked:176 
+11-19 22:45:28.122  6677  6734 I System.out: URI: //map
+11-19 22:45:28.122  6677  6734 I System.out: params: {json={"query":"android.widget.EditText id:'usage_fee_per_kwh_edit_text'","operation":{"method_name":"query","arguments":[]}}
+11-19 22:45:28.122  6677  6734 I System.out: }
+11-19 22:45:28.156  6677  6735 I System.out: URI: //gesture
+11-19 22:45:28.156  6677  6735 I System.out: params: {json={"query_timeout":5.0,"gestures":[{"query_string":"android.widget.EditText id:'usage_fee_per_kwh_edit_text'","touches":[{"x":50,"y":50,"offset_x":0,"offset_y":0,"wait":0.0,"time":0.2,"release":true,"query_string":null}]}]}
+11-19 22:45:28.156  6677  6735 I System.out: }
+11-19 22:45:28.182  1588  1598 I WindowManager: Destroying surface Surface(name=net.alaindonesia.silectric/net.alaindonesia.silectric.MainActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.WindowManagerService.tryStartExitingAnimation:3024 com.android.server.wm.WindowManagerService.relayoutWindow:2904 com.android.server.wm.Session.relayout:224 android.view.IWindowSession$Stub.onTransact:286 com.android.server.wm.Session.onTransact:145 
+11-19 22:45:28.301  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:28.418  1653  1653 W InputMethodService: Window size has been changed. This may cause jankiness of resizing window: -1 -> -2
+11-19 22:45:28.428  1653  1653 I LatinIME: Starting input. Cursor position = 0,0
+11-19 22:45:28.482  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:28.489  6677  6703 D EGL_emulation: eglMakeCurrent: 0xa60856c0: ver 2 0 (tinfo 0xa60836c0)
+11-19 22:45:28.550  1653  3581 D EGL_emulation: eglMakeCurrent: 0xa60855a0: ver 2 0 (tinfo 0xa6083690)
+11-19 22:45:28.944  6677  6736 I System.out: URI: //
+11-19 22:45:28.944  6677  6736 I System.out: params: {json={"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:28.944  6677  6736 I System.out: }
+11-19 22:45:28.944  6677  6736 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:29 GMT, accept=*/*, host=127.0.0.1:34777, content-length=47, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:28.944  6677  6736 I System.out: params: {json={"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:28.944  6677  6736 I System.out: }
+11-19 22:45:28.944  6677  6736 I System.out: ProP json = {"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:28.944  6677  6736 I System.out: files: {}
+11-19 22:45:28.944  6677  6736 I System.out: command: {"command":"set_selection","arguments":[-1,-1]}
+11-19 22:45:28.947  6677  6736 I InstrumentationBackend: Got command:'Command:'Line:null,set_selection', arguments:'[-1, -1]'
+11-19 22:45:28.957  6677  6736 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:28.980  6677  6740 I System.out: URI: //
+11-19 22:45:28.980  6677  6740 I System.out: params: {json={"command":"keyboard_enter_text","arguments":["5"]}
+11-19 22:45:28.980  6677  6740 I System.out: }
+11-19 22:45:28.980  6677  6740 I System.out: header: {content-type=application/json;charset=utf-8, date=Mon, 20 Nov 2017 03:45:29 GMT, accept=*/*, host=127.0.0.1:34777, content-length=51, user-agent=HTTPClient/1.0 (2.8.3, ruby 2.3.1 (2016-04-26))}
+11-19 22:45:28.980  6677  6740 I System.out: params: {json={"command":"keyboard_enter_text","arguments":["5"]}
+11-19 22:45:28.980  6677  6740 I System.out: }
+11-19 22:45:28.980  6677  6740 I System.out: ProP json = {"command":"keyboard_enter_text","arguments":["5"]}
+11-19 22:45:28.980  6677  6740 I System.out: files: {}
+11-19 22:45:28.980  6677  6740 I System.out: command: {"command":"keyboard_enter_text","arguments":["5"]}
+11-19 22:45:28.982  6677  6740 I InstrumentationBackend: Got command:'Command:'Line:null,keyboard_enter_text', arguments:'[5]'
+11-19 22:45:28.982  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:28.982  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:28.986  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:28.986  6677  6677 E SpannableStringBuilder: SPAN_EXCLUSIVE_EXCLUSIVE spans cannot have a zero length
+11-19 22:45:28.991  6677  6740 I System.out: result:{"bonusInformation":[],"message":"","success":true}
+11-19 22:45:28.995  6677  6741 I System.out: URI: //map
+11-19 22:45:28.995  6677  6741 I System.out: params: {json={"query":"* id:'saveElectricFeeButton'","operation":{"method_name":"query","arguments":[]}}
+11-19 22:45:28.995  6677  6741 I System.out: }
+11-19 22:45:29.009  6677  6682 I art     : Do full code cache collection, code=101KB, data=104KB
+11-19 22:45:29.009  6677  6682 I art     : After code cache collection, code=91KB, data=85KB
+11-19 22:45:29.011  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.011  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.011  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.012  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.013  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.013  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.013  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.013  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.014  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.014  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.014  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.015  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.015  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.016  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.016  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.016  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.017  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.017  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.017  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.018  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.018  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.018  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.019  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.020  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.020  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.020  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.021  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.021  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.021  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.021  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.021  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.022  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.022  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.022  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.023  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.023  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.023  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.023  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.023  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.024  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.046  6677  6742 I System.out: URI: //gesture
+11-19 22:45:29.046  6677  6742 I System.out: params: {json={"query_timeout":5.0,"gestures":[{"query_string":"* id:'saveElectricFeeButton'","touches":[{"x":50,"y":50,"offset_x":0,"offset_y":0,"wait":0.0,"time":0.2,"release":true,"query_string":null}]}]}
+11-19 22:45:29.046  6677  6742 I System.out: }
+11-19 22:45:29.060  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.060  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.061  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.062  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.062  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.062  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.063  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.063  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.063  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.064  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.064  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.064  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.065  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.066  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.067  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.067  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.067  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.068  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.068  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.069  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.069  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.070  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.071  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.071  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.072  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.072  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.072  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.073  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.073  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.073  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.074  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.075  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.075  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.075  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.076  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.076  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.076  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.077  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.077  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.077  6677  6677 W ResourceType: No known package when getting name for resource number 0xffffffff
+11-19 22:45:29.165  1588  1608 I WindowManager: Destroying surface Surface(name=PopupWindow:7bafed2) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.AppWindowToken.destroySurfaces:363 com.android.server.wm.WindowStateAnimator.finishExit:565 com.android.server.wm.WindowStateAnimator.stepAnimationLocked:491 com.android.server.wm.WindowAnimator.updateWindowsLocked:303 com.android.server.wm.WindowAnimator.animateLocked:704 
+11-19 22:45:29.323  6677  6677 D AndroidRuntime: Shutting down VM
+--------- beginning of crash
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: FATAL EXCEPTION: main
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: Process: net.alaindonesia.silectric, PID: 6677
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: java.lang.NumberFormatException: For input string: "Infinity5"
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at java.lang.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:1306)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at java.lang.Float.valueOf(Float.java:424)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at net.alaindonesia.silectric.OptionsActivity$1.onClick(OptionsActivity.java:71)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at android.view.View.performClick(View.java:5610)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at android.view.View$PerformClick.run(View.java:22265)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:751)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:95)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:154)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:6077)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:866)
+11-19 22:45:29.323  6677  6677 E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:756)
+11-19 22:45:29.325  6677  6677 I Process : Sending signal. PID: 6677 SIG: 9
+11-19 22:45:29.372  1588  1832 I WindowManager: WIN DEATH: Window{de539f4 u0 net.alaindonesia.silectric/net.alaindonesia.silectric.MainActivity}
+11-19 22:45:29.372  1588  1599 D GraphicsStats: Buffer count: 4
+11-19 22:45:29.373  1588  1620 W InputDispatcher: channel '5a273b6 net.alaindonesia.silectric/net.alaindonesia.silectric.OptionsActivity (server)' ~ Consumer closed input channel or an error occurred.  events=0x9
+11-19 22:45:29.373  1588  1620 E InputDispatcher: channel '5a273b6 net.alaindonesia.silectric/net.alaindonesia.silectric.OptionsActivity (server)' ~ Channel is unrecoverably broken and will be disposed!
+11-19 22:45:29.373  1588  1599 I ActivityManager: Process net.alaindonesia.silectric (pid 6677) has died
+11-19 22:45:29.373  1588  1599 D ActivityManager: cleanUpApplicationRecord -- 6677
+11-19 22:45:29.374  1588  1599 W ActivityManager: Force removing ActivityRecord{e7e12ea u0 net.alaindonesia.silectric/.OptionsActivity t24}: app died, no saved state
+11-19 22:45:29.375  1588  1943 I WindowManager: WIN DEATH: Window{5a273b6 u0 net.alaindonesia.silectric/net.alaindonesia.silectric.OptionsActivity}
+11-19 22:45:29.375  1588  1943 W InputDispatcher: Attempted to unregister already unregistered input channel '5a273b6 net.alaindonesia.silectric/net.alaindonesia.silectric.OptionsActivity (server)'
+11-19 22:45:29.375  1588  1943 I WindowManager: Destroying surface Surface(name=net.alaindonesia.silectric/net.alaindonesia.silectric.OptionsActivity) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.removeLocked:1456 com.android.server.wm.WindowManagerService.removeWindowInnerLocked:2484 com.android.server.wm.WindowManagerService.removeWindowLocked:2442 com.android.server.wm.WindowState$DeathRecipient.binderDied:1787 android.os.BinderProxy.sendDeathNotice:688 <bottom of call stack> 
+11-19 22:45:29.379  1588  1599 W ActivityManager: Crash of app net.alaindonesia.silectric running instrumentation ComponentInfo{net.alaindonesia.silectric.test/sh.calaba.instrumentationbackend.CalabashInstrumentationTestRunner}
+11-19 22:45:29.380  1588  1599 I ActivityManager: Force stopping net.alaindonesia.silectric appid=10096 user=0: finished inst
+11-19 22:45:29.380  1588  1599 I ActivityManager:   Force finishing activity ActivityRecord{35289c9 u0 net.alaindonesia.silectric/.MainActivity t24}
+11-19 22:45:29.384  1588  1599 I ActivityManager:   Force finishing activity ActivityRecord{35289c9 u0 net.alaindonesia.silectric/.MainActivity t24 f}
+11-19 22:45:29.384  1588  1599 W ActivityManager: Duplicate finish request for ActivityRecord{35289c9 u0 net.alaindonesia.silectric/.MainActivity t24 f}
+11-19 22:45:29.450  1653  1653 W InputMethodService: Window size has been changed. This may cause jankiness of resizing window: -1 -> -2
+11-19 22:45:29.468  1653  3581 D EGL_emulation: eglMakeCurrent: 0xa60855a0: ver 2 0 (tinfo 0xa6083690)
+11-19 22:45:29.469  2053  2130 D EGL_emulation: eglMakeCurrent: 0xa37fc6e0: ver 2 0 (tinfo 0xa37f1db0)
+11-19 22:45:29.600  1308  1844 E SurfaceFlinger: ro.sf.lcd_density must be defined as a build property
+11-19 22:45:29.611  1308  1315 D gralloc_ranchu: gralloc_alloc: Creating ashmem region of size 8294400
+11-19 22:45:29.620  6746  6746 D         : HostConnection::get() New Host Connection established 0xab79b2c0, tid 6746
+11-19 22:45:29.621  6746  6746 W         : Unrecognized GLES max version string in extensions: ANDROID_EMU_CHECKSUM_HELPER_v1 ANDROID_EMU_dma_v1 
+11-19 22:45:29.625  1308  1308 E EGL_emulation: tid 1308: eglCreateSyncKHR(1901): error 0x3004 (EGL_BAD_ATTRIBUTE)
+11-19 22:45:29.687  1588  1608 I WindowManager: Destroying surface Surface(name=InputMethod) called by com.android.server.wm.WindowStateAnimator.destroySurface:2016 com.android.server.wm.WindowStateAnimator.destroySurfaceLocked:882 com.android.server.wm.WindowState.destroyOrSaveSurface:2100 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacementInner:429 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacementLoop:232 com.android.server.wm.WindowSurfacePlacer.performSurfacePlacement:180 com.android.server.wm.WindowManagerService$H.handleMessage:8086 android.os.Handler.dispatchMessage:102 
+11-19 22:45:29.981  2053  2130 W OpenGLRenderer: Incorrectly called buildLayer on View: ShortcutAndWidgetContainer, destroying layer...
+11-19 22:45:32.546  1351  1393 W audio_hw_generic: Not supplying enough data to HAL, expected position 5007050 , only wrote 4767120
+11-19 22:45:33.786  2176  5786 I ContentMaintenance: Pruning caches...
+11-19 22:45:33.787  2176  5786 I ContentMaintenance: Internal cache bytes used: 0; limit: 100000000; download size: 0
+11-19 22:45:33.792  2176  5786 I ContentMaintenance: Cache pruning complete.
+11-19 22:45:33.795  2176  5786 I ContentMaintenance: Beginning garbage collection.
+11-19 22:45:33.797  2176  5786 I RealtimeCacheCleanup: Beginning Realtime garbage collection.
+11-19 22:45:33.797  2176  5786 I RealtimeCacheCleanup: Finished Realtime garbage collection.
+11-19 22:45:33.797  2176  5786 I ContentMaintenance: Finished garbage collection.
