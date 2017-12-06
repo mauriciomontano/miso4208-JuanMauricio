@@ -14,57 +14,67 @@
         </h:head>
 
         <h:body>
+            <h:form id="formulario" enctype="multipart/form-data">
+                <p:layout fullPage="true">
 
-            <p:layout fullPage="true">
+                    <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                        Header
+                    </p:layoutUnit>
 
-                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
-                </p:layoutUnit>
+                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                        <p:menu>
+                            <p:menuitem value="Pruebas" url="/index.xhtml" />
+                            <p:menuitem value="Reporte" url="/reporte.xhtml" />
+                            <p:menuitem value="GitHub" url="https://github.com/mauriciomontano/miso4208-JuanMauricio/tree/master/proyecto-pruebas" />
+                        </p:menu>
+                    </p:layoutUnit>
 
-                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
-                    <p:menu>
-                        <p:submenu label="Resources">
-                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
-                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+                    <p:layoutUnit position="center">
 
-                        </p:submenu>
-
-                    </p:menu>
-                </p:layoutUnit>
-
-                <p:layoutUnit position="center">
-                    <h:form id="formulario">
-                        
-                        
-                        
+                        <p:messages autoUpdate="true" closable="true" id="mensajesPagina"/>
                         <table border="0">
                             <tr>
                                 <td><p:outputLabel value="Numero de eventos"></p:outputLabel></td>
-                                <td><p:inputText></p:inputText></td>
+                                <td><p:inputText value="#{indexControlador.numeroEventos}"></p:inputText></td>   
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="Dispositivos"></p:outputLabel></td>
+                                <td>
+                                    <h:outputText value="Nexus 5x"></h:outputText>&nbsp;
+                                    <p:selectBooleanCheckbox value="#{indexControlador.nexus5x}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <h:outputText value="Nexus 6x"></h:outputText>&nbsp;
+                                    <p:selectBooleanCheckbox value="#{indexControlador.nexus6x}" />
+                                </td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel value="Apk"></p:outputLabel></td>
-                                <td><p:inputText></p:inputText></td>
+                            <td><p:fileUpload value="#{indexControlador.apk}" mode="simple"/></td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel value="Features calabash"></p:outputLabel></td>
-                                <td><p:inputText></p:inputText></td>
+                                <td><p:fileUpload value="#{indexControlador.features}" mode="simple"/></td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel value="Pagina tienda de apps"></p:outputLabel></td>
-                                <td><p:inputText></p:inputText></td>
+                                <td><p:inputText value="#{indexControlador.paginaTienda}"></p:inputText></td>
                             </tr>
                         </table>
                         <br/>
-                        <p:commandButton value="Ejecutar pruebas" actionListener="#{indexControlador.ejecutarPruebas()}" update=":formulario"></p:commandButton>
-                        <p:chart id="grafico_barras" type="bar" model="#{indexControlador.barModel}" style="height:300px" rendered="#{indexControlador.barModel != null}"/>
-                    </h:form>
-                </p:layoutUnit>
+                        <p:commandButton ajax="false" id="startButton2" widgetVar="startButton2" value="Ejecutar pruebas" actionListener="#{indexControlador.ejecutarPruebas()}"></p:commandButton>
+                        <br/><br/>
+                        <p:outputLabel value="Random testing"></p:outputLabel>
+                        <p:progressBar id="pbAjax1" widgetVar="pbAjax1" ajax="true" value="#{indexControlador.progresoMonkey}" labelTemplate="{value}%" styleClass="animated" style="width: 98%"></p:progressBar>
+                        <br/>
+                        <p:outputLabel value="Features calabash"></p:outputLabel>
+                        <p:progressBar id="pbAjax2" widgetVar="pbAjax2" ajax="true" value="#{indexControlador.progresoCalabash}" labelTemplate="{value}%" styleClass="animated" style="width: 98%"></p:progressBar>
+                        <br/>
+                        <p:outputLabel value="Ripper tienda"></p:outputLabel>
+                        <p:progressBar id="pbAjax3" widgetVar="pbAjax3" ajax="true" value="#{indexControlador.progresoRipper}" labelTemplate="{value}%" styleClass="animated" style="width: 98%"></p:progressBar>
 
-            </p:layout>
+                    </p:layoutUnit>
 
+                </p:layout>
+            </h:form>
         </h:body>
 
     </f:view>
