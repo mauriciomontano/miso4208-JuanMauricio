@@ -21,7 +21,7 @@
                         Header
                     </p:layoutUnit>
 
-                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
                         <p:menu>
                             <p:menuitem value="Pruebas" url="/index.xhtml" />
                             <p:menuitem value="Reporte" url="/reporte.xhtml" />
@@ -33,7 +33,9 @@
 
                         <p:messages autoUpdate="true" closable="true" id="mensajesPagina"/>
                         
-                        <p:chart id="grafico_barras" type="bar" model="#{reporteControlador.barModel}" style="height:300px" rendered="#{reporteControlador.barModel != null}"/>
+                        <h:outputText value="Se están realizando las pruebas..." rendered="#{indexControlador.progresoMonkey != 100 or indexControlador.progresoCalabash != 100 or indexControlador.progresoRipper != 100}"></h:outputText>
+                        
+                        <p:chart id="grafico_barras" type="bar" model="#{reporteControlador.barModel}" style="height:300px" rendered="#{indexControlador.progresoMonkey == 100 and indexControlador.progresoCalabash == 100 and indexControlador.progresoRipper == 100}"/>
 
                     </p:layoutUnit>
 

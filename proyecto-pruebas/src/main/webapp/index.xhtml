@@ -21,7 +21,7 @@
                         Header
                     </p:layoutUnit>
 
-                    <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
                         <p:menu>
                             <p:menuitem value="Pruebas" url="/index.xhtml" />
                             <p:menuitem value="Reporte" url="/reporte.xhtml" />
@@ -34,8 +34,20 @@
                         <p:messages autoUpdate="true" closable="true" id="mensajesPagina"/>
                         <table border="0">
                             <tr>
-                                <td><p:outputLabel value="Numero de eventos"></p:outputLabel></td>
-                                <td><p:inputText value="#{indexControlador.numeroEventos}"></p:inputText></td>   
+                                <td><p:outputLabel value="Android home"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.android_home}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="ADB Root"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.adb_root}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="Token Telnet"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.telnet_token}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="Puerto emulador"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.emulator_port}"></p:inputText></td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel value="Dispositivos"></p:outputLabel></td>
@@ -47,17 +59,26 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td><p:outputLabel value="Pagina tienda de apps"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.paginaTienda}"></p:inputText></td>
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="Numero de eventos"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.numeroEventos}"></p:inputText></td>   
+                            </tr>
+                            <tr>
+                                <td><p:outputLabel value="Paquete"></p:outputLabel></td>
+                                <td><p:inputText value="#{indexControlador.paquete}"></p:inputText></td>
+                            </tr>
+                            <tr>
                                 <td><p:outputLabel value="Apk"></p:outputLabel></td>
-                            <td><p:fileUpload value="#{indexControlador.apk}" mode="simple"/></td>
+                                <td><p:fileUpload value="#{indexControlador.apk}" mode="simple"/></td>
                             </tr>
                             <tr>
                                 <td><p:outputLabel value="Features calabash"></p:outputLabel></td>
                                 <td><p:fileUpload value="#{indexControlador.features}" mode="simple"/></td>
                             </tr>
-                            <tr>
-                                <td><p:outputLabel value="Pagina tienda de apps"></p:outputLabel></td>
-                                <td><p:inputText value="#{indexControlador.paginaTienda}"></p:inputText></td>
-                            </tr>
+                            
                         </table>
                         <br/>
                         <p:commandButton ajax="false" id="startButton2" widgetVar="startButton2" value="Ejecutar pruebas" actionListener="#{indexControlador.ejecutarPruebas()}"></p:commandButton>
