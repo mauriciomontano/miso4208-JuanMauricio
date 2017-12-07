@@ -10,7 +10,6 @@ import org.primefaces.model.UploadedFile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -18,6 +17,13 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Random;
 import java.util.UUID;
+import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 /**
  *
@@ -213,13 +219,49 @@ public class IndexControlador implements Serializable {
             @Override
             public void run() {
                 progresoRipper = 0;
-                for (int i = 0; i < 100; i++) {
-                    try {
-                        progresoRipper++;
-                        Thread.sleep(200);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
+                try {
+                    Set<String> hrefs = new HashSet<>();
+                    Document doc = Jsoup.connect("https://play.google.com/store/apps/category/FINANCE/collection/topselling_paid").timeout(0).get();
+                    Elements anchors = doc.getElementsByClass("card-click-target");
+                    for (Element e : anchors) {
+                        String href = "https://play.google.com/" + e.attr("href");
+                        hrefs.add(href);
                     }
+
+                    for (String url : hrefs) {
+                        progresoRipper++;
+                        Document paginaApp = Jsoup.connect(url).timeout(0).get();
+
+                        //Descripcion
+                        Elements claseTitulo = paginaApp.getElementsByClass("id-app-title");
+                        System.out.println("\nTitulo: " + (!claseTitulo.isEmpty() ? claseTitulo.get(0).text() : ""));
+
+                        //Numero de raitings
+                        Elements claseRaitings = paginaApp.getElementsByClass("rating-count");
+                        System.out.println("Numero de raitings: " + (!claseRaitings.isEmpty() ? claseRaitings.get(0).text() : ""));
+
+                        //Score
+                        Elements claseScore = paginaApp.getElementsByClass("score");
+                        System.out.println("Score: " + (!claseScore.isEmpty() ? claseScore.get(0).text() : ""));
+
+                        //Descripcion
+                        String descripcion = paginaApp.select("[itemprop='description']").text();
+                        System.out.println("Descripcion: " + descripcion);
+
+                        //Cambios recientes
+                        Elements claseCambiosRecientes = paginaApp.getElementsByClass("recent-change");
+                        System.out.println("Cambios recientes: " + (!claseCambiosRecientes.isEmpty() ? claseCambiosRecientes.get(0).text() : ""));
+
+                        //Ratings con 5 estrellas
+                        Elements claseCincoEstrellas = paginaApp.getElementsByClass("rating-bar-container five");
+                        System.out.println("Ratings con 5 estrellas: " + (!claseCincoEstrellas.isEmpty() ? claseCincoEstrellas.get(0).text() : ""));
+
+                        //Ratings con 4 estrellas
+                        Elements claseCuatroEstrellas = paginaApp.getElementsByClass("rating-bar-container four");
+                        System.out.println("Ratings con 4 estrellas: " + (!claseCuatroEstrellas.isEmpty() ? claseCuatroEstrellas.get(0).text() : ""));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
                 try {
                     progresoRipper = 100;
