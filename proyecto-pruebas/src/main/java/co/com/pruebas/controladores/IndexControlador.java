@@ -9,6 +9,8 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.model.UploadedFile;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -18,8 +20,11 @@ import java.net.URL;
 import java.util.Random;
 import java.util.UUID;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -40,11 +45,11 @@ public class IndexControlador implements Serializable {
     private String adb_root = "/home/juan/Android/Sdk/platform-tools/";
     private String telnet_token = "ZhOfLHqRnR2sPche";
     private String emulator_port = "5554";
-    private boolean nexus5x;
+    private boolean nexus5x = true;
     private boolean nexus6x;
-    private String paginaTienda;
-    private int numeroEventos;
-    private String paquete;
+    private String paginaTienda = "https://wwww";
+    private int numeroEventos = 3;
+    private String paquete = "net.alaindonesia.silectric";
     private UploadedFile apk;
     private UploadedFile features;
     private int progresoMonkey;
@@ -69,9 +74,9 @@ public class IndexControlador implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else {
             RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('startButton2').disable();");
-            ejecutarMonkeyAsinc();
+            //ejecutarMonkeyAsinc();
+            //ejecutarRipperAsinc();
             ejecutarCalabashAsinc();
-            ejecutarRipperAsinc();
         }
     }
 
@@ -89,11 +94,11 @@ public class IndexControlador implements Serializable {
     public void abrirEmulador(String emulador) throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
         URL resource = this.getClass().getResource("/abrirEmulador.sh");
-        FileWriter fichero = new FileWriter(resource.getPath());
-        PrintWriter pw = new PrintWriter(fichero);
+        FileWriter archivo = new FileWriter(resource.getPath());
+        PrintWriter pw = new PrintWriter(archivo);
         pw.println("export ANDROID_HOME=" + android_home);
         pw.println("$ANDROID_HOME/emulator/emulator -netdelay none -netspeed full -avd " + emulador);
-        fichero.close();
+        archivo.close();
         pw.close();
         rt.exec("sh " + resource.getPath());
         Thread.sleep(5000);
@@ -128,9 +133,28 @@ public class IndexControlador implements Serializable {
         }
     }
 
-    public boolean getPermisoEjecutar(String probabilidad) {
-        Random random = new Random();
-        return probabilidad != null && random.nextInt(101) < (Double.valueOf(probabilidad) * 100);
+    public static void copiarArchivo(InputStream archivo, String rutaAbsolutaDestino) throws IOException {
+        OutputStream out = null;
+        try {
+            out = new FileOutputStream(rutaAbsolutaDestino);
+
+            byte[] buffer = new byte[1024];
+            int len;
+
+            while ((len = archivo.read(buffer)) > 0) {
+                out.write(buffer, 0, len);
+            }
+            out.flush();
+        } catch (IOException e) {
+            throw e;
+        } finally {
+            if (archivo != null) {
+                archivo.close();
+            }
+            if (out != null) {
+                out.close();
+            }
+        }
     }
 
     private void ejecutarMonkeyAsinc() {
@@ -184,6 +208,7 @@ public class IndexControlador implements Serializable {
                 try {
                     progresoMonkey = 100;
                     Thread.sleep(1000);
+                    ejecutarCalabashAsinc();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -196,13 +221,31 @@ public class IndexControlador implements Serializable {
             @Override
             public void run() {
                 progresoCalabash = 0;
-                for (int i = 0; i < 100; i++) {
-                    try {
-                        progresoCalabash++;
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                        ex.printStackTrace();
-                    }
+                try {
+                    progresoCalabash++;
+                    String carpeta = this.getClass().getResource("/features").getPath();
+                    String rutaAbsolutaDestino = carpeta + File.separator + features.getFileName();
+                    copiarArchivo(features.getInputstream(), rutaAbsolutaDestino);
+                    Runtime rt = Runtime.getRuntime();
+                    rt.exec("unzip -u " + rutaAbsolutaDestino + " -d " + carpeta);
+
+                    /*
+                        
+                        URL resource = this.getClass().getResource("/abrirEmulador.sh");
+                        FileWriter archivo = new FileWriter(resource.getPath());
+                        PrintWriter pw = new PrintWriter(archivo);
+                        pw.println("export ANDROID_HOME=" + android_home);
+                        pw.println("calabash-android resign " + apk);
+                        pw.println("calabash-android run " + apk);
+                        archivo.close();
+                        pw.close();
+                        rt.exec("sh " + resource.getPath());
+                        System.out.println("Abriendo emulador " + emulador);
+                     */
+                    Thread.sleep(5000);
+
+                } catch (InterruptedException | IOException ex) {
+                    ex.printStackTrace();
                 }
                 try {
                     progresoCalabash = 100;
