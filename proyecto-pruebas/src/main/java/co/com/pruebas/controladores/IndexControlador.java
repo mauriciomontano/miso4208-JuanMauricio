@@ -23,8 +23,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -223,27 +221,24 @@ public class IndexControlador implements Serializable {
                 progresoCalabash = 0;
                 try {
                     progresoCalabash++;
-                    String carpeta = this.getClass().getResource("/features").getPath();
-                    String rutaAbsolutaDestino = carpeta + File.separator + features.getFileName();
-                    copiarArchivo(features.getInputstream(), rutaAbsolutaDestino);
-                    Runtime rt = Runtime.getRuntime();
-                    rt.exec("unzip -u " + rutaAbsolutaDestino + " -d " + carpeta);
-
-                    /*
-                        
-                        URL resource = this.getClass().getResource("/abrirEmulador.sh");
-                        FileWriter archivo = new FileWriter(resource.getPath());
-                        PrintWriter pw = new PrintWriter(archivo);
-                        pw.println("export ANDROID_HOME=" + android_home);
-                        pw.println("calabash-android resign " + apk);
-                        pw.println("calabash-android run " + apk);
-                        archivo.close();
-                        pw.close();
-                        rt.exec("sh " + resource.getPath());
-                        System.out.println("Abriendo emulador " + emulador);
-                     */
+                    
+                    String calabash = this.getClass().getResource("/calabash").getPath();
+                    String apkDestino = calabash + File.separator + apk.getFileName();
+                    String featuresDestino = calabash + File.separator + "features" + File.separator + features.getFileName();
+                    copiarArchivo(apk.getInputstream(), apkDestino);
+                    copiarArchivo(features.getInputstream(), featuresDestino);
+                    FileWriter archivo = new FileWriter(calabash + File.separator + "calabash.sh");
+                    PrintWriter pw = new PrintWriter(archivo);
+                    pw.println("cd " + calabash);
+                    pw.println("export ANDROID_HOME=" + android_home);
+                    pw.println("unzip -u " +  features.getFileName());
+                    pw.println("calabash-android resign " + apk.getFileName());
+                    pw.println("calabash-android run " + apk.getFileName());
+                    archivo.close();
+                    pw.close();
+                    Runtime rt = Runtime.getRuntime(); 
+                    rt.exec("sh " + calabash + File.separator + "calabash.sh");
                     Thread.sleep(5000);
-
                 } catch (InterruptedException | IOException ex) {
                     ex.printStackTrace();
                 }
