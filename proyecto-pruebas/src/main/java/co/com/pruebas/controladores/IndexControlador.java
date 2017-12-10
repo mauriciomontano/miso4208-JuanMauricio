@@ -72,9 +72,8 @@ public class IndexControlador implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else {
             RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('startButton2').disable();");
-            //ejecutarMonkeyAsinc();
-            //ejecutarRipperAsinc();
-            ejecutarCalabashAsinc();
+            ejecutarMonkeyAsinc();
+            ejecutarRipperAsinc();
         }
     }
 
@@ -99,7 +98,7 @@ public class IndexControlador implements Serializable {
         archivo.close();
         pw.close();
         rt.exec("sh " + resource.getPath());
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         System.out.println("Abriendo emulador " + emulador);
     }
 
@@ -113,7 +112,7 @@ public class IndexControlador implements Serializable {
         Runtime rt = Runtime.getRuntime();
         rt.exec(adb_root + "adb install -r " + apk);
         System.out.println("Instaldo: " + apk);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
     }
 
     public void abrirApk(String paquete) throws IOException {
@@ -131,7 +130,7 @@ public class IndexControlador implements Serializable {
         }
     }
 
-    public static void copiarArchivo(InputStream archivo, String rutaAbsolutaDestino) throws IOException {
+    public void copiarArchivo(InputStream archivo, String rutaAbsolutaDestino) throws IOException {
         OutputStream out = null;
         try {
             out = new FileOutputStream(rutaAbsolutaDestino);
@@ -175,28 +174,40 @@ public class IndexControlador implements Serializable {
                         int x = random.nextInt(99);
                         int y = random.nextInt(99);
                         int z = random.nextInt(99);
+                        int cual = random.nextInt(7 + 1);
 
-                        abrirApk(paquete);
-                        ejecutarAdb("tap " + x1 + " " + y1);
-
-                        abrirApk(paquete);
-                        ejecutarAdb("text " + UUID.randomUUID());
-
-                        abrirApk(paquete);
-                        ejecutarAdb("swipe " + x1 + " " + y1 + " " + x2 + " " + y2);
-
-                        abrirApk(paquete);
-                        ejecutarAdb("keyevent " + key);
-
-                        abrirApk(paquete);
-                        ejecutarTelnet("rotate");
-
-                        abrirApk(paquete);
-                        ejecutarTelnet("network speed " + VELOCIDADES[vel]);
-
-                        abrirApk(paquete);
-                        ejecutarTelnet("sensor set acceleration " + x + ":" + y + ":" + z);
-
+                        switch (cual) {
+                            case 1:
+                                abrirApk(paquete);
+                                ejecutarAdb("tap " + x1 + " " + y1);
+                                break;
+                            case 2:
+                                abrirApk(paquete);
+                                ejecutarAdb("text " + UUID.randomUUID());
+                                break;
+                            case 3:
+                                abrirApk(paquete);
+                                ejecutarAdb("swipe " + x1 + " " + y1 + " " + x2 + " " + y2);
+                                break;
+                            case 4:
+                                abrirApk(paquete);
+                                ejecutarAdb("keyevent " + key);
+                                break;
+                            case 5:
+                                abrirApk(paquete);
+                                ejecutarTelnet("rotate");
+                                break;
+                            case 6:
+                                abrirApk(paquete);
+                                ejecutarTelnet("network speed " + VELOCIDADES[vel]);
+                                break;
+                            case 7:
+                                abrirApk(paquete);
+                                ejecutarTelnet("sensor set acceleration " + x + ":" + y + ":" + z);
+                                break;
+                            default:
+                                break;
+                        }
                         progresoMonkey++;
                         Thread.sleep(1000);
                     }
@@ -205,7 +216,7 @@ public class IndexControlador implements Serializable {
                 }
                 try {
                     progresoMonkey = 100;
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                     ejecutarCalabashAsinc();
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
@@ -220,8 +231,7 @@ public class IndexControlador implements Serializable {
             public void run() {
                 progresoCalabash = 0;
                 try {
-                    progresoCalabash++;
-                    
+                    progresoCalabash++;                    
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + File.separator + apk.getFileName();
                     String featuresDestino = calabash + File.separator + "features" + File.separator + features.getFileName();
@@ -231,7 +241,7 @@ public class IndexControlador implements Serializable {
                     PrintWriter pw = new PrintWriter(archivo);
                     pw.println("cd " + calabash);
                     pw.println("export ANDROID_HOME=" + android_home);
-                    pw.println("unzip -u " +  features.getFileName());
+                    pw.println("unzip -u " +  featuresDestino + " -d " + calabash + File.separator + "features");
                     pw.println("calabash-android resign " + apk.getFileName());
                     pw.println("calabash-android run " + apk.getFileName());
                     archivo.close();
@@ -244,7 +254,7 @@ public class IndexControlador implements Serializable {
                 }
                 try {
                     progresoCalabash = 100;
-                    Thread.sleep(1000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
