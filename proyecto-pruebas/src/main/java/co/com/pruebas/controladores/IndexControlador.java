@@ -117,7 +117,15 @@ public class IndexControlador implements Serializable {
     public void borrarLogCat() throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
         rt.exec(adb_root + "adb logcat -c" + apk);
-        System.out.println("Instaldo: " + apk);
+        System.out.println("Borrando logcat: " + apk);
+        Thread.sleep(5000);
+    }
+    
+    public void extraerLogCat(String nombre) throws IOException, InterruptedException {
+        URL resource = this.getClass().getResource(File.separator + nombre);
+        Runtime rt = Runtime.getRuntime();
+        rt.exec(adb_root + "adb logcat -d > " + resource.getPath());
+        System.out.println("Extrayendo logcat: " + resource.getPath());
         Thread.sleep(5000);
     }
 
@@ -166,6 +174,7 @@ public class IndexControlador implements Serializable {
             public void run() {
                 try {
                     progresoMonkey = 0;
+                    borrarLogCat();
                     abrirEmulador("Nexus_5X_API_24");
                     instalarApk(apk.getFileName(), paquete);
                     abrirApk(paquete);
@@ -222,9 +231,10 @@ public class IndexControlador implements Serializable {
                 }
                 try {
                     progresoMonkey = 100;
+                    extraerLogCat("monkey.log");
                     Thread.sleep(5000);
                     ejecutarCalabashAsinc();
-                } catch (InterruptedException ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
@@ -235,9 +245,8 @@ public class IndexControlador implements Serializable {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                progresoCalabash = 0;
                 try {
-                    progresoCalabash++;                    
+                    borrarLogCat();              
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + File.separator + apk.getFileName();
                     String featuresDestino = calabash + File.separator + "features" + File.separator + features.getFileName();
@@ -255,13 +264,16 @@ public class IndexControlador implements Serializable {
                     Runtime rt = Runtime.getRuntime(); 
                     rt.exec("sh " + calabash + File.separator + "calabash.sh");
                     Thread.sleep(5000);
-                } catch (InterruptedException | IOException ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
                 try {
-                    progresoCalabash = 100;
-                    Thread.sleep(5000);
-                } catch (InterruptedException ex) {
+                    for (int i = 0; i < 100; i++) {
+                        progresoCalabash++;
+                        Thread.sleep(250);
+                    }
+                    extraerLogCat("calabash.log");
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
@@ -281,6 +293,10 @@ public class IndexControlador implements Serializable {
                         String href = "https://play.google.com/" + e.attr("href");
                         hrefs.add(href);
                     }
+                    
+                    URL resource = this.getClass().getResource("/ripper.log");
+                    FileWriter archivo = new FileWriter(resource.getPath());
+                    PrintWriter pw = new PrintWriter(archivo);                    
 
                     for (String url : hrefs) {
                         progresoRipper++;
@@ -288,39 +304,42 @@ public class IndexControlador implements Serializable {
 
                         //Descripcion
                         Elements claseTitulo = paginaApp.getElementsByClass("id-app-title");
-                        System.out.println("\nTitulo: " + (!claseTitulo.isEmpty() ? claseTitulo.get(0).text() : ""));
+                        pw.println("\nTitulo: " + (!claseTitulo.isEmpty() ? claseTitulo.get(0).text() : ""));
 
                         //Numero de raitings
                         Elements claseRaitings = paginaApp.getElementsByClass("rating-count");
-                        System.out.println("Numero de raitings: " + (!claseRaitings.isEmpty() ? claseRaitings.get(0).text() : ""));
+                        pw.println("Numero de raitings: " + (!claseRaitings.isEmpty() ? claseRaitings.get(0).text() : ""));
 
                         //Score
                         Elements claseScore = paginaApp.getElementsByClass("score");
-                        System.out.println("Score: " + (!claseScore.isEmpty() ? claseScore.get(0).text() : ""));
+                        pw.println("Score: " + (!claseScore.isEmpty() ? claseScore.get(0).text() : ""));
 
                         //Descripcion
                         String descripcion = paginaApp.select("[itemprop='description']").text();
-                        System.out.println("Descripcion: " + descripcion);
+                        pw.println("Descripcion: " + descripcion);
 
                         //Cambios recientes
                         Elements claseCambiosRecientes = paginaApp.getElementsByClass("recent-change");
-                        System.out.println("Cambios recientes: " + (!claseCambiosRecientes.isEmpty() ? claseCambiosRecientes.get(0).text() : ""));
+                        pw.println("Cambios recientes: " + (!claseCambiosRecientes.isEmpty() ? claseCambiosRecientes.get(0).text() : ""));
 
                         //Ratings con 5 estrellas
                         Elements claseCincoEstrellas = paginaApp.getElementsByClass("rating-bar-container five");
-                        System.out.println("Ratings con 5 estrellas: " + (!claseCincoEstrellas.isEmpty() ? claseCincoEstrellas.get(0).text() : ""));
+                        pw.println("Ratings con 5 estrellas: " + (!claseCincoEstrellas.isEmpty() ? claseCincoEstrellas.get(0).text() : ""));
 
                         //Ratings con 4 estrellas
                         Elements claseCuatroEstrellas = paginaApp.getElementsByClass("rating-bar-container four");
-                        System.out.println("Ratings con 4 estrellas: " + (!claseCuatroEstrellas.isEmpty() ? claseCuatroEstrellas.get(0).text() : ""));
+                        pw.println("Ratings con 4 estrellas: " + (!claseCuatroEstrellas.isEmpty() ? claseCuatroEstrellas.get(0).text() : ""));
+                        
+                        pw.close();
+                        archivo.close();
                     }
-                } catch (IOException e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try {
                     progresoRipper = 100;
                     Thread.sleep(1000);
-                } catch (InterruptedException ex) {
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
