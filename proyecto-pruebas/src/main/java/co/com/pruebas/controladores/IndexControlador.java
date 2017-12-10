@@ -37,7 +37,6 @@ import org.jsoup.select.Elements;
 public class IndexControlador implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
     private String[] VELOCIDADES = {"gsm", "hscsd", "gprs", "edge", "umts", "hsdpa", "lte", "evdo", "full"};
     private String android_home = "/home/juan/Android/Sdk";
     private String adb_root = "/home/juan/Android/Sdk/platform-tools/";
@@ -45,7 +44,7 @@ public class IndexControlador implements Serializable {
     private String emulator_port = "5554";
     private boolean nexus5x = true;
     private boolean nexus6x;
-    private String paginaTienda = "https://wwww";
+    private String paginaTienda = "https://play.google.com/store/apps/category/FINANCE/collection/topselling_paid";
     private int numeroEventos = 3;
     private String paquete = "net.alaindonesia.silectric";
     private UploadedFile apk;
@@ -114,6 +113,13 @@ public class IndexControlador implements Serializable {
         System.out.println("Instaldo: " + apk);
         Thread.sleep(5000);
     }
+    
+    public void borrarLogCat() throws IOException, InterruptedException {
+        Runtime rt = Runtime.getRuntime();
+        rt.exec(adb_root + "adb logcat -c" + apk);
+        System.out.println("Instaldo: " + apk);
+        Thread.sleep(5000);
+    }
 
     public void abrirApk(String paquete) throws IOException {
         Runtime rt = Runtime.getRuntime();
@@ -154,7 +160,7 @@ public class IndexControlador implements Serializable {
         }
     }
 
-    private void ejecutarMonkeyAsinc() {
+    public void ejecutarMonkeyAsinc() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -225,7 +231,7 @@ public class IndexControlador implements Serializable {
         }).start();
     }
 
-    private void ejecutarCalabashAsinc() {
+    public void ejecutarCalabashAsinc() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -262,14 +268,14 @@ public class IndexControlador implements Serializable {
         }).start();
     }
 
-    private void ejecutarRipperAsinc() {
+    public void ejecutarRipperAsinc() {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 progresoRipper = 0;
                 try {
                     Set<String> hrefs = new HashSet<>();
-                    Document doc = Jsoup.connect("https://play.google.com/store/apps/category/FINANCE/collection/topselling_paid").timeout(0).get();
+                    Document doc = Jsoup.connect(paginaTienda).timeout(0).get();
                     Elements anchors = doc.getElementsByClass("card-click-target");
                     for (Element e : anchors) {
                         String href = "https://play.google.com/" + e.attr("href");
