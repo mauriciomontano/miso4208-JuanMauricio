@@ -71,6 +71,9 @@ public class IndexControlador implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else {
             RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('startButton2').disable();");
+            progresoMonkey = 0;
+            progresoCalabash = 0;
+            progresoRipper = 0;
             ejecutarMonkeyAsinc();
             ejecutarRipperAsinc();
         }
@@ -113,18 +116,27 @@ public class IndexControlador implements Serializable {
         System.out.println("Instaldo: " + apk);
         Thread.sleep(5000);
     }
-    
+
     public void borrarLogCat() throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
         rt.exec(adb_root + "adb logcat -c" + apk);
         System.out.println("Borrando logcat: " + apk);
         Thread.sleep(5000);
     }
-    
+
     public void extraerLogCat(String nombre) throws IOException, InterruptedException {
-        URL resource = this.getClass().getResource(File.separator + nombre);
         Runtime rt = Runtime.getRuntime();
-        rt.exec(adb_root + "adb logcat -d > " + resource.getPath());
+        InputStream is = rt.exec(adb_root + "adb logcat -d").getInputStream();
+        BufferedReader in = new BufferedReader(new InputStreamReader(is));
+        URL resource = this.getClass().getResource(File.separator + nombre);
+        FileWriter archivo = new FileWriter(resource.getPath());
+        PrintWriter pw = new PrintWriter(archivo);
+        String line;
+        while ((line = in.readLine()) != null) {
+            pw.println(line);
+        }
+        pw.close();
+        archivo.close();
         System.out.println("Extrayendo logcat: " + resource.getPath());
         Thread.sleep(5000);
     }
@@ -173,7 +185,6 @@ public class IndexControlador implements Serializable {
             @Override
             public void run() {
                 try {
-                    progresoMonkey = 0;
                     borrarLogCat();
                     abrirEmulador("Nexus_5X_API_24");
                     instalarApk(apk.getFileName(), paquete);
@@ -246,7 +257,7 @@ public class IndexControlador implements Serializable {
             @Override
             public void run() {
                 try {
-                    borrarLogCat();              
+                    borrarLogCat();
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + File.separator + apk.getFileName();
                     String featuresDestino = calabash + File.separator + "features" + File.separator + features.getFileName();
@@ -256,12 +267,12 @@ public class IndexControlador implements Serializable {
                     PrintWriter pw = new PrintWriter(archivo);
                     pw.println("cd " + calabash);
                     pw.println("export ANDROID_HOME=" + android_home);
-                    pw.println("unzip -u " +  featuresDestino + " -d " + calabash + File.separator + "features");
+                    pw.println("unzip -u " + featuresDestino + " -d " + calabash + File.separator + "features");
                     pw.println("calabash-android resign " + apk.getFileName());
                     pw.println("calabash-android run " + apk.getFileName());
                     archivo.close();
                     pw.close();
-                    Runtime rt = Runtime.getRuntime(); 
+                    Runtime rt = Runtime.getRuntime();
                     rt.exec("sh " + calabash + File.separator + "calabash.sh");
                     Thread.sleep(5000);
                 } catch (Exception ex) {
@@ -284,7 +295,6 @@ public class IndexControlador implements Serializable {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                progresoRipper = 0;
                 try {
                     Set<String> hrefs = new HashSet<>();
                     Document doc = Jsoup.connect(paginaTienda).timeout(0).get();
@@ -293,10 +303,10 @@ public class IndexControlador implements Serializable {
                         String href = "https://play.google.com/" + e.attr("href");
                         hrefs.add(href);
                     }
-                    
+
                     URL resource = this.getClass().getResource("/ripper.log");
                     FileWriter archivo = new FileWriter(resource.getPath());
-                    PrintWriter pw = new PrintWriter(archivo);                    
+                    PrintWriter pw = new PrintWriter(archivo);
 
                     for (String url : hrefs) {
                         progresoRipper++;
@@ -329,7 +339,7 @@ public class IndexControlador implements Serializable {
                         //Ratings con 4 estrellas
                         Elements claseCuatroEstrellas = paginaApp.getElementsByClass("rating-bar-container four");
                         pw.println("Ratings con 4 estrellas: " + (!claseCuatroEstrellas.isEmpty() ? claseCuatroEstrellas.get(0).text() : ""));
-                        
+
                         pw.close();
                         archivo.close();
                     }
