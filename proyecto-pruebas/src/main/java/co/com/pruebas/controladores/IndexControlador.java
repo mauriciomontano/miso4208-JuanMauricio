@@ -339,10 +339,9 @@ public class IndexControlador implements Serializable {
                         //Ratings con 4 estrellas
                         Elements claseCuatroEstrellas = paginaApp.getElementsByClass("rating-bar-container four");
                         pw.println("Ratings con 4 estrellas: " + (!claseCuatroEstrellas.isEmpty() ? claseCuatroEstrellas.get(0).text() : ""));
-
-                        pw.close();
-                        archivo.close();
                     }
+                    pw.close();
+                    archivo.close();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

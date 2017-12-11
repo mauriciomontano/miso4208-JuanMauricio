@@ -1,6 +1,10 @@
 package co.com.pruebas.controladores;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.Serializable;
+import java.net.URL;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -15,58 +19,116 @@ import org.primefaces.model.chart.ChartSeries;
  */
 @ViewScoped
 @Named("reporteControlador")
-public class ReporteControlador implements Serializable{
-    
+public class ReporteControlador implements Serializable {
+
     private static final long serialVersionUID = 1L;
-    
-    private BarChartModel barModel;
-    
+
+    private BarChartModel barModelMonkey;
+    private BarChartModel barModelCalabash;
+    private String ripperLog;
+
     @PostConstruct
     public void postConstruct() {
         generarReporte();
     }
-    
+
     private void generarReporte() {
-        if (true) {
-            barModel = new BarChartModel();
+        try {
 
-            ChartSeries boys = new ChartSeries();
-            boys.setLabel("Pruebas exitosas");
-            boys.set("Monkey 1", 120);
-            boys.set("Monkey 2", 100);
-            boys.set("Monkey 3", 44);
-            boys.set("Calabash 1", 150);
-            boys.set("Calabash 2", 25);
+            barModelMonkey = new BarChartModel();
 
-            ChartSeries girls = new ChartSeries();
-            girls.setLabel("Pruebas fallidas");
-            girls.set("Monkey 1", 52);
-            girls.set("Monkey 2", 60);
-            girls.set("Monkey 3", 110);
-            girls.set("Calabash 1", 135);
-            girls.set("Calabash 2", 120);
+            ChartSeries n5xMonkeySerie = new ChartSeries();
+            n5xMonkeySerie.setLabel("Nexus 5x");
+            n5xMonkeySerie.set("Errores", 120);
+            n5xMonkeySerie.set("Crashes", 100);
+            n5xMonkeySerie.set("Excepciones", 44);
 
-            barModel.addSeries(boys);
-            barModel.addSeries(girls);
+            ChartSeries n6xMonkeySerie = new ChartSeries();
+            n6xMonkeySerie.setLabel("Nexus 6x");
+            n6xMonkeySerie.set("Errores", 52);
+            n6xMonkeySerie.set("Crashes", 60);
+            n6xMonkeySerie.set("Excepciones", 110);
 
-            barModel.setTitle("Reporte de pruebas");
-            barModel.setLegendPosition("ne");
+            barModelMonkey.addSeries(n5xMonkeySerie);
+            barModelMonkey.addSeries(n6xMonkeySerie);
 
-            Axis xAxis = barModel.getAxis(AxisType.X);
-            xAxis.setLabel("Prueba realizada");
+            barModelMonkey.setTitle("Reporte random testing");
+            barModelMonkey.setLegendPosition("ne");
 
-            Axis yAxis = barModel.getAxis(AxisType.Y);
-            yAxis.setLabel("Porcentaje");
-            yAxis.setMin(0);
-            yAxis.setMax(200);
+            Axis xAxisMonkey = barModelMonkey.getAxis(AxisType.X);
+            xAxisMonkey.setLabel("");
+
+            Axis yAxisMonkey = barModelMonkey.getAxis(AxisType.Y);
+            yAxisMonkey.setLabel("Porcentaje");
+            yAxisMonkey.setMin(0);
+            yAxisMonkey.setMax(200);
+
+            barModelCalabash = new BarChartModel();
+
+            ChartSeries n5xCalabashSerie = new ChartSeries();
+            n5xCalabashSerie.setLabel("Nexus 5x");
+            n5xCalabashSerie.set("Errores", 120);
+            n5xCalabashSerie.set("Crashes", 100);
+            n5xCalabashSerie.set("Excepciones", 44);
+
+            ChartSeries n6xCalabashSerie = new ChartSeries();
+            n6xCalabashSerie.setLabel("Nexus 6x");
+            n6xCalabashSerie.set("Errores", 52);
+            n6xCalabashSerie.set("Crashes", 60);
+            n6xCalabashSerie.set("Excepciones", 110);
+
+            barModelCalabash.addSeries(n5xCalabashSerie);
+            barModelCalabash.addSeries(n6xCalabashSerie);
+
+            barModelCalabash.setTitle("Reporte BDT testing");
+            barModelCalabash.setLegendPosition("ne");
+
+            Axis xAxisCalabash = barModelCalabash.getAxis(AxisType.X);
+            xAxisCalabash.setLabel("");
+
+            Axis yAxisCalabash = barModelCalabash.getAxis(AxisType.Y);
+            yAxisCalabash.setLabel("Porcentaje");
+            yAxisCalabash.setMin(0);
+            yAxisCalabash.setMax(200);
+
+            URL resource = this.getClass().getResource("/ripper.log");
+            File archivo = new File(resource.getPath());
+            FileReader fr = new FileReader(archivo);
+            BufferedReader br = new BufferedReader(fr);
+            String linea;
+            ripperLog = "";
+            while ((linea = br.readLine()) != null) {
+                ripperLog = ripperLog + linea + "\n";
+            }
+            fr.close();
+            br.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public BarChartModel getBarModel() {
-        return barModel;
+    public BarChartModel getBarModelMonkey() {
+        return barModelMonkey;
     }
 
-    public void setBarModel(BarChartModel barModel) {
-        this.barModel = barModel;
+    public void setBarModelMonkey(BarChartModel barModelMonkey) {
+        this.barModelMonkey = barModelMonkey;
+    }
+
+    public BarChartModel getBarModelCalabash() {
+        return barModelCalabash;
+    }
+
+    public void setBarModelCalabash(BarChartModel barModelCalabash) {
+        this.barModelCalabash = barModelCalabash;
+    }
+
+    public String getRipperLog() {
+        return ripperLog;
+    }
+
+    public void setRipperLog(String ripperLog) {
+        this.ripperLog = ripperLog;
     }
 }
