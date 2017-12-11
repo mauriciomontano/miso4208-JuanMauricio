@@ -35,15 +35,16 @@
                         
                         <h:outputText value="Se están realizando las pruebas..." rendered="#{indexControlador.progresoMonkey lt 100 or indexControlador.progresoCalabash lt 100 or indexControlador.progresoRipper lt 100}"></h:outputText>
                         
-                        <p:chart id="barModelMonkey" type="bar" model="#{reporteControlador.barModelMonkey}" style="height:300px" rendered="#{true or indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
+                        <p:chart id="barModelMonkey" type="bar" model="#{reporteControlador.barModelMonkey}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
 
                         <br/><br/>
                         
-                        <p:chart id="barModelCalabash" type="bar" model="#{reporteControlador.barModelCalabash}" style="height:300px" rendered="#{true or indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
+                        <p:chart id="barModelCalabash" type="bar" model="#{reporteControlador.barModelCalabash}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
 
                         <br/><br/>
-                        <div align="center"><h:outputText value="Reporte ripper"/></div><br/>
-                        <p:inputTextarea readonly="true" rows="6" cols="105" value="#{reporteControlador.ripperLog}"/>
+                        
+                        <div align="center"><h:outputText value="Reporte ripper" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/></div><br/>
+                        <p:inputTextarea readonly="true" rows="6" cols="105" value="#{reporteControlador.ripperLog}" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
 
                     </p:layoutUnit>
 
