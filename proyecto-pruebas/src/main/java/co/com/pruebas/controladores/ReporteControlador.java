@@ -88,7 +88,7 @@ public class ReporteControlador implements Serializable {
 
             barModelCalabash = new BarChartModel();
 
-            URL r2 = this.getClass().getResource("/monkey.log");
+            URL r2 = this.getClass().getResource("/calabash.log");
             File a2 = new File(r2.getPath());
             FileReader fr2 = new FileReader(a2);
             BufferedReader br2 = new BufferedReader(fr2);
