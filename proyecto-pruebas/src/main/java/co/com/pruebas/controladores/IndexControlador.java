@@ -43,7 +43,7 @@ public class IndexControlador implements Serializable {
     private String telnet_token = "ZhOfLHqRnR2sPche";
     private String emulator_port = "5554";
     private boolean nexus5x = true;
-    private boolean nexus6x;
+    private boolean galaxy5s;
     private String paginaTienda = "https://play.google.com/store/apps/category/FINANCE/collection/topselling_paid";
     private int numeroEventos = 3;
     private String paquete = "net.alaindonesia.silectric";
@@ -52,12 +52,14 @@ public class IndexControlador implements Serializable {
     private int progresoMonkey;
     private int progresoCalabash;
     private int progresoRipper;
+    public static final String NEXUS_5X_ID = "emulator-5554";
+    public static final String GALAXY_5X_ID = "320490902d7e3171";
 
     public void ejecutarPruebas() {
         if (numeroEventos <= 0) {
             String msn = "El numero de eventos debe ser mayor a cero";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
-        } else if (!nexus5x && !nexus6x) {
+        } else if (!nexus5x && !galaxy5s) {
             String msn = "Debe seleccionar al menos un dispositivo";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else if (apk.getFileName().trim().isEmpty()) {
@@ -71,10 +73,28 @@ public class IndexControlador implements Serializable {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else {
             RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('startButton2').disable();");
-            progresoMonkey = 0;
-            progresoCalabash = 0;
-            progresoRipper = 0;
-            ejecutarMonkeyAsinc();
+
+            if (nexus5x && galaxy5s) {
+                progresoMonkey = 0;
+                progresoCalabash = 0;
+                progresoRipper = 0;
+                ejecutarMonkeyAsinc(NEXUS_5X_ID);
+
+                progresoMonkey = 0;
+                progresoCalabash = 0;
+                progresoRipper = 0;
+                ejecutarMonkeyAsinc(GALAXY_5X_ID);
+            } else if (nexus5x) {
+                progresoMonkey = 0;
+                progresoCalabash = 0;
+                progresoRipper = 0;
+                ejecutarMonkeyAsinc(NEXUS_5X_ID);
+            } else if (galaxy5s) {
+                progresoMonkey = 0;
+                progresoCalabash = 0;
+                progresoRipper = 0;
+                ejecutarMonkeyAsinc(GALAXY_5X_ID);
+            }
             ejecutarRipperAsinc();
         }
     }
@@ -104,29 +124,29 @@ public class IndexControlador implements Serializable {
         System.out.println("Abriendo emulador " + emulador);
     }
 
-    public void ejecutarAdb(String orden) throws IOException {
+    public void ejecutarAdb(String orden, String device) throws IOException {
         Runtime rt = Runtime.getRuntime();
-        rt.exec(adb_root + "adb shell input " + orden);
+        rt.exec(adb_root + "adb -s " + device + " shell input " + orden);
         System.out.println("Orden adb: " + orden);
     }
 
-    public void instalarApk(String apk, String paquete) throws IOException, InterruptedException {
+    public void instalarApk(String apk, String paquete, String device) throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
-        rt.exec(adb_root + "adb install -r " + apk);
+        rt.exec(adb_root + "adb -s " + device + " install -r " + apk);
         System.out.println("Instaldo: " + apk);
         Thread.sleep(5000);
     }
 
-    public void borrarLogCat() throws IOException, InterruptedException {
+    public void borrarLogCat(String device) throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
-        rt.exec(adb_root + "adb logcat -c" + apk);
+        rt.exec(adb_root + "adb -s " + device + " logcat -c" + apk);
         System.out.println("Borrando logcat: " + apk);
         Thread.sleep(5000);
     }
 
-    public void extraerLogCat(String nombre) throws IOException, InterruptedException {
+    public void extraerLogCat(String nombre, String device) throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
-        InputStream is = rt.exec(adb_root + "adb logcat -d").getInputStream();
+        InputStream is = rt.exec(adb_root + "adb -s " + device + " logcat -d").getInputStream();
         BufferedReader in = new BufferedReader(new InputStreamReader(is));
         URL resource = this.getClass().getResource(File.separator + nombre);
         FileWriter archivo = new FileWriter(resource.getPath());
@@ -141,9 +161,9 @@ public class IndexControlador implements Serializable {
         Thread.sleep(5000);
     }
 
-    public void abrirApk(String paquete) throws IOException {
+    public void abrirApk(String paquete, String device) throws IOException {
         Runtime rt = Runtime.getRuntime();
-        InputStream is = rt.exec(adb_root + "adb shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'").getInputStream();
+        InputStream is = rt.exec(adb_root + "adb -s " + device + " shell dumpsys window windows | grep -E 'mCurrentFocus|mFocusedApp'").getInputStream();
         BufferedReader in = new BufferedReader(new InputStreamReader(is));
         String salida = "";
         String line;
@@ -151,7 +171,7 @@ public class IndexControlador implements Serializable {
             salida += line;
         }
         if (!salida.contains(paquete)) {
-            rt.exec(adb_root + "adb shell monkey -p " + paquete + " 1");
+            rt.exec(adb_root + "adb -s " + device + " shell monkey -p " + paquete + " 1");
             System.out.println("Abriendo: " + paquete);
         }
     }
@@ -180,15 +200,18 @@ public class IndexControlador implements Serializable {
         }
     }
 
-    public void ejecutarMonkeyAsinc() {
+    public void ejecutarMonkeyAsinc(final String device) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    borrarLogCat();
+                    borrarLogCat(device);
                     abrirEmulador("Nexus_5X_API_24");
-                    instalarApk(apk.getFileName(), paquete);
-                    abrirApk(paquete);
+                    String calabash = this.getClass().getResource("/calabash").getPath();
+                    String apkDestino = calabash + File.separator + apk.getFileName();
+                    copiarArchivo(apk.getInputstream(), apkDestino);
+                    instalarApk(apkDestino, paquete, device);
+                    abrirApk(paquete, device);
                     Random random = new Random(12345);
                     for (int i = 0; i < numeroEventos; i++) {
                         int x1 = random.nextInt(1080);
@@ -204,31 +227,31 @@ public class IndexControlador implements Serializable {
 
                         switch (cual) {
                             case 1:
-                                abrirApk(paquete);
-                                ejecutarAdb("tap " + x1 + " " + y1);
+                                abrirApk(paquete, device);
+                                ejecutarAdb("tap " + x1 + " " + y1, device);
                                 break;
                             case 2:
-                                abrirApk(paquete);
-                                ejecutarAdb("text " + UUID.randomUUID());
+                                abrirApk(paquete, device);
+                                ejecutarAdb("text " + UUID.randomUUID(), device);
                                 break;
                             case 3:
-                                abrirApk(paquete);
-                                ejecutarAdb("swipe " + x1 + " " + y1 + " " + x2 + " " + y2);
+                                abrirApk(paquete, device);
+                                ejecutarAdb("swipe " + x1 + " " + y1 + " " + x2 + " " + y2, device);
                                 break;
                             case 4:
-                                abrirApk(paquete);
-                                ejecutarAdb("keyevent " + key);
+                                abrirApk(paquete, device);
+                                ejecutarAdb("keyevent " + key, device);
                                 break;
                             case 5:
-                                abrirApk(paquete);
+                                abrirApk(paquete, device);
                                 ejecutarTelnet("rotate");
                                 break;
                             case 6:
-                                abrirApk(paquete);
+                                abrirApk(paquete, device);
                                 ejecutarTelnet("network speed " + VELOCIDADES[vel]);
                                 break;
                             case 7:
-                                abrirApk(paquete);
+                                abrirApk(paquete, device);
                                 ejecutarTelnet("sensor set acceleration " + x + ":" + y + ":" + z);
                                 break;
                             default:
@@ -242,9 +265,9 @@ public class IndexControlador implements Serializable {
                 }
                 try {
                     progresoMonkey = 100;
-                    extraerLogCat("monkey.log");
+                    extraerLogCat("monkey_" + device + ".log", device);
                     Thread.sleep(5000);
-                    ejecutarCalabashAsinc();
+                    ejecutarCalabashAsinc(device);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -252,12 +275,12 @@ public class IndexControlador implements Serializable {
         }).start();
     }
 
-    public void ejecutarCalabashAsinc() {
+    public void ejecutarCalabashAsinc(final String device) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    borrarLogCat();
+                    borrarLogCat(device);
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + File.separator + apk.getFileName();
                     String featuresDestino = calabash + File.separator + "features" + File.separator + features.getFileName();
@@ -267,6 +290,7 @@ public class IndexControlador implements Serializable {
                     PrintWriter pw = new PrintWriter(archivo);
                     pw.println("cd " + calabash);
                     pw.println("export ANDROID_HOME=" + android_home);
+                    pw.println("export ADB_DEVICE_ARG=" + device);
                     pw.println("unzip -u " + featuresDestino + " -d " + calabash + File.separator + "features");
                     pw.println("calabash-android resign " + apk.getFileName());
                     pw.println("calabash-android run " + apk.getFileName());
@@ -283,7 +307,7 @@ public class IndexControlador implements Serializable {
                         progresoCalabash++;
                         Thread.sleep(250);
                     }
-                    extraerLogCat("calabash.log");
+                    extraerLogCat("calabash_" + device + ".log", device);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -403,12 +427,12 @@ public class IndexControlador implements Serializable {
         this.nexus5x = nexus5x;
     }
 
-    public boolean isNexus6x() {
-        return nexus6x;
+    public boolean isGalaxy5s() {
+        return galaxy5s;
     }
 
-    public void setNexus6x(boolean nexus6x) {
-        this.nexus6x = nexus6x;
+    public void setGalaxy5s(boolean galaxy5s) {
+        this.galaxy5s = galaxy5s;
     }
 
     public String getPaginaTienda() {
