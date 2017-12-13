@@ -139,8 +139,8 @@ public class IndexControlador implements Serializable {
 
     public void borrarLogCat(String device) throws IOException, InterruptedException {
         Runtime rt = Runtime.getRuntime();
-        rt.exec(adb_root + "adb -s " + device + " logcat -c" + apk);
-        System.out.println("Borrando logcat: " + apk);
+        rt.exec(adb_root + "adb -s " + device + " logcat -c");
+        System.out.println("Borrando logcat: " + device);
         Thread.sleep(5000);
     }
 
@@ -212,7 +212,7 @@ public class IndexControlador implements Serializable {
                     copiarArchivo(apk.getInputstream(), apkDestino);
                     instalarApk(apkDestino, paquete, device);
                     abrirApk(paquete, device);
-                    Random random = new Random(12345);
+                    Random random = new Random();
                     for (int i = 0; i < numeroEventos; i++) {
                         int x1 = random.nextInt(1080);
                         int y1 = random.nextInt(1920);
@@ -223,34 +223,34 @@ public class IndexControlador implements Serializable {
                         int x = random.nextInt(99);
                         int y = random.nextInt(99);
                         int z = random.nextInt(99);
-                        int cual = random.nextInt(7 + 1);
+                        int cual = random.nextInt(7);
 
                         switch (cual) {
-                            case 1:
+                            case 0:
                                 abrirApk(paquete, device);
                                 ejecutarAdb("tap " + x1 + " " + y1, device);
                                 break;
-                            case 2:
+                            case 1:
                                 abrirApk(paquete, device);
                                 ejecutarAdb("text " + UUID.randomUUID(), device);
                                 break;
-                            case 3:
+                            case 2:
                                 abrirApk(paquete, device);
                                 ejecutarAdb("swipe " + x1 + " " + y1 + " " + x2 + " " + y2, device);
                                 break;
-                            case 4:
+                            case 3:
                                 abrirApk(paquete, device);
                                 ejecutarAdb("keyevent " + key, device);
                                 break;
-                            case 5:
+                            case 4:
                                 abrirApk(paquete, device);
                                 ejecutarTelnet("rotate");
                                 break;
-                            case 6:
+                            case 5:
                                 abrirApk(paquete, device);
                                 ejecutarTelnet("network speed " + VELOCIDADES[vel]);
                                 break;
-                            case 7:
+                            case 6:
                                 abrirApk(paquete, device);
                                 ejecutarTelnet("sensor set acceleration " + x + ":" + y + ":" + z);
                                 break;
@@ -303,9 +303,9 @@ public class IndexControlador implements Serializable {
                     ex.printStackTrace();
                 }
                 try {
-                    for (int i = 0; i < 100; i++) {
+                    while(progresoCalabash < 100) {
                         progresoCalabash++;
-                        Thread.sleep(250);
+                        Thread.sleep(1000);
                     }
                     extraerLogCat("calabash_" + device + ".log", device);
                 } catch (Exception ex) {

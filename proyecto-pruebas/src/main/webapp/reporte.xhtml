@@ -37,6 +37,8 @@
                         
                         <p:chart id="barModelMonkey" type="bar" model="#{reporteControlador.barModelMonkey}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
                         
+                        <br/>
+                        
                         <div align="right">
                             <p:commandButton value="Logcat nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileMonkeyNexus5x}" />
@@ -50,6 +52,8 @@
                         <br/><br/><br/>
                         
                         <p:chart id="barModelCalabash" type="bar" model="#{reporteControlador.barModelCalabash}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}"/>
+
+                        <br/>
                         
                         <div align="right">
                             <p:commandButton value="Logcat nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoRipper ge 100}">

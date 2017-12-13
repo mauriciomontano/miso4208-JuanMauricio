@@ -128,7 +128,7 @@ public class ReporteControlador implements Serializable {
             Axis yAxisMonkey = barModelMonkey.getAxis(AxisType.Y);
             yAxisMonkey.setLabel("Porcentaje");
             yAxisMonkey.setMin(0);
-            yAxisMonkey.setMax(200);
+            yAxisMonkey.setMax(100);
 
             barModelCalabash = new BarChartModel();
 
@@ -215,7 +215,7 @@ public class ReporteControlador implements Serializable {
             Axis yAxisCalabash = barModelCalabash.getAxis(AxisType.Y);
             yAxisCalabash.setLabel("Porcentaje");
             yAxisCalabash.setMin(0);
-            yAxisCalabash.setMax(200);
+            yAxisCalabash.setMax(100);
 
             URL r5 = this.getClass().getResource("/ripper.log");
             File a5 = new File(r5.getPath());
