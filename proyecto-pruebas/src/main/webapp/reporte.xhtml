@@ -12,13 +12,13 @@
                 <title>Proyecto pruebas</title>
             </f:facet>
         </h:head>
-
+        
         <h:body>
             <h:form id="formulario" enctype="multipart/form-data">
                 <p:layout fullPage="true">
 
                     <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                        Header
+                        <img src="flamebase.png" height="75" width="375"/>
                     </p:layoutUnit>
 
                     <p:layoutUnit position="west" size="175" header="Menu" collapsible="true">
@@ -30,7 +30,7 @@
                     </p:layoutUnit>
 
                     <p:layoutUnit position="center">
-
+                        
                         <p:messages autoUpdate="true" closable="true" id="mensajesPagina"/>
                         
                         <h:outputText value="Se están realizando las pruebas..." rendered="#{indexControlador.progresoMonkey lt 100 or indexControlador.progresoCalabash lt 100 or indexControlador.progresoRipper lt 100}"></h:outputText>
