@@ -2,12 +2,16 @@ package co.com.pruebas.controladores;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileReader;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.net.URL;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 import org.primefaces.model.chart.Axis;
 import org.primefaces.model.chart.AxisType;
 import org.primefaces.model.chart.BarChartModel;
@@ -25,6 +29,11 @@ public class ReporteControlador implements Serializable {
 
     private BarChartModel barModelMonkey;
     private BarChartModel barModelCalabash;
+    private StreamedContent fileMonkeyNexus5x;
+    private StreamedContent fileMonkeyGalaxy5s;
+    private StreamedContent fileCalabashNexus5x;
+    private StreamedContent fileCalabashGalaxy5s;
+    private StreamedContent fileRipper;
     private String ripperLog;
 
     @PostConstruct
@@ -64,6 +73,9 @@ public class ReporteControlador implements Serializable {
                 }
                 fr1.close();
                 br1.close();
+                
+                InputStream stream = new FileInputStream(r1.getPath());
+                fileMonkeyNexus5x = new DefaultStreamedContent(stream, null, "fileMonkeyNexus5x.log");
             }
             
             URL r2 = this.getClass().getResource("/monkey_" + IndexControlador.GALAXY_5X_ID + ".log");
@@ -87,6 +99,9 @@ public class ReporteControlador implements Serializable {
                 }
                 fr2.close();
                 br2.close();
+                
+                InputStream stream = new FileInputStream(r2.getPath());
+                fileMonkeyGalaxy5s = new DefaultStreamedContent(stream, null, "fileMonkeyGalaxy5s.log");
             }
 
             ChartSeries n5xMonkeySerie = new ChartSeries();
@@ -145,6 +160,9 @@ public class ReporteControlador implements Serializable {
                 }
                 fr3.close();
                 br3.close();
+                
+                InputStream stream = new FileInputStream(r3.getPath());
+                fileCalabashNexus5x = new DefaultStreamedContent(stream, null, "fileCalabashNexus5x.log");
             }
             
             URL r4 = this.getClass().getResource("/calabash_" + IndexControlador.GALAXY_5X_ID + ".log");
@@ -168,6 +186,9 @@ public class ReporteControlador implements Serializable {
                 }
                 fr4.close();
                 br4.close();
+                
+                InputStream stream = new FileInputStream(r4.getPath());
+                fileCalabashGalaxy5s = new DefaultStreamedContent(stream, null, "fileCalabashGalaxy5s.log");
             }
 
             ChartSeries n5xCalabashSerie = new ChartSeries();
@@ -207,6 +228,9 @@ public class ReporteControlador implements Serializable {
             }
             fr5.close();
             br5.close();
+            
+            InputStream stream = new FileInputStream(r5.getPath());
+            fileRipper = new DefaultStreamedContent(stream, null, "fileRipper.log");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -228,11 +252,51 @@ public class ReporteControlador implements Serializable {
         this.barModelCalabash = barModelCalabash;
     }
 
+    public StreamedContent getFileMonkeyNexus5x() {
+        return fileMonkeyNexus5x;
+    }
+
+    public void setFileMonkeyNexus5x(StreamedContent fileMonkeyNexus5x) {
+        this.fileMonkeyNexus5x = fileMonkeyNexus5x;
+    }
+
+    public StreamedContent getFileMonkeyGalaxy5s() {
+        return fileMonkeyGalaxy5s;
+    }
+
+    public void setFileMonkeyGalaxy5s(StreamedContent fileMonkeyGalaxy5s) {
+        this.fileMonkeyGalaxy5s = fileMonkeyGalaxy5s;
+    }
+
+    public StreamedContent getFileCalabashNexus5x() {
+        return fileCalabashNexus5x;
+    }
+
+    public void setFileCalabashNexus5x(StreamedContent fileCalabashNexus5x) {
+        this.fileCalabashNexus5x = fileCalabashNexus5x;
+    }
+
+    public StreamedContent getFileCalabashGalaxy5s() {
+        return fileCalabashGalaxy5s;
+    }
+
+    public void setFileCalabashGalaxy5s(StreamedContent fileCalabashGalaxy5s) {
+        this.fileCalabashGalaxy5s = fileCalabashGalaxy5s;
+    }
+
+    public StreamedContent getFileRipper() {
+        return fileRipper;
+    }
+
+    public void setFileRipper(StreamedContent fileRipper) {
+        this.fileRipper = fileRipper;
+    }
+
     public String getRipperLog() {
         return ripperLog;
     }
 
     public void setRipperLog(String ripperLog) {
         this.ripperLog = ripperLog;
-    }
+    }   
 }
