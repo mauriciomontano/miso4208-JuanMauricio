@@ -71,7 +71,7 @@ public class ReporteControlador implements Serializable {
                         er1++;
                     }
 
-                    if (linea1.toLowerCase().contains(ic.getPaquete()) && linea1.toLowerCase().contains("has died")) {
+                    if (linea1.contains("Force removing") && linea1.toLowerCase().contains(ic.getPaquete()) && linea1.toLowerCase().contains("app died")) {
                         cr1++;
                     }
 
@@ -97,7 +97,7 @@ public class ReporteControlador implements Serializable {
                         er2++;
                     }
 
-                    if (linea2.toLowerCase().contains(ic.getPaquete()) && linea2.toLowerCase().contains("has died")) {
+                    if (linea2.contains("Force removing") && linea2.toLowerCase().contains(ic.getPaquete()) && linea2.toLowerCase().contains("app died")) {
                         cr2++;
                     }
 
@@ -158,7 +158,7 @@ public class ReporteControlador implements Serializable {
                         er3++;
                     }
 
-                    if (linea3.toLowerCase().contains(ic.getPaquete()) && linea3.toLowerCase().contains("has died")) {
+                    if (linea3.contains("Force removing") && linea3.toLowerCase().contains(ic.getPaquete()) && linea3.toLowerCase().contains("app died")) {
                         cr3++;
                     }
 
@@ -184,7 +184,7 @@ public class ReporteControlador implements Serializable {
                         er4++;
                     }
 
-                    if (linea4.toLowerCase().contains(ic.getPaquete()) && linea4.toLowerCase().contains("has died")) {
+                    if (linea4.contains("Force removing") && linea4.toLowerCase().contains(ic.getPaquete()) && linea4.toLowerCase().contains("app died")) {
                         cr4++;
                     }
 

@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import org.jsoup.Jsoup;
@@ -52,6 +53,8 @@ public class IndexControlador implements Serializable {
     private String paquete = "net.alaindonesia.silectric";
     private UploadedFile apk;
     private UploadedFile features;
+    private List<Boolean> monkeysTerminados;
+    private List<Boolean> calabashTerminados;
     private int progresoMonkey;
     private int progresoCalabash;
     private int progresoScraper;
@@ -150,7 +153,15 @@ public class IndexControlador implements Serializable {
         } else {
             RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('pbAjax4').start();PF('startButton2').disable();");
 
+            monkeysTerminados = new ArrayList<>();
+            calabashTerminados = new ArrayList<>();
+
             if (nexus5x && galaxy5s) {
+                monkeysTerminados.add(false);
+                monkeysTerminados.add(false);
+                calabashTerminados.add(false);
+                calabashTerminados.add(false);
+
                 progresoMonkey = 0;
                 progresoCalabash = 0;
                 progresoScraper = 0;
@@ -161,11 +172,17 @@ public class IndexControlador implements Serializable {
                 progresoScraper = 0;
                 ejecutarMonkeyAsinc(GALAXY_5X_ID);
             } else if (nexus5x) {
+                monkeysTerminados.add(false);
+                calabashTerminados.add(false);
+
                 progresoMonkey = 0;
                 progresoCalabash = 0;
                 progresoScraper = 0;
                 ejecutarMonkeyAsinc(NEXUS_5X_ID);
             } else if (galaxy5s) {
+                monkeysTerminados.add(false);
+                calabashTerminados.add(false);
+
                 progresoMonkey = 0;
                 progresoCalabash = 0;
                 progresoScraper = 0;
@@ -345,7 +362,23 @@ public class IndexControlador implements Serializable {
                     e.printStackTrace();
                 }
                 try {
-                    progresoMonkey = 100;
+                    for (int i = 0; i < monkeysTerminados.size(); i++) {
+                        if (!monkeysTerminados.get(i)) {
+                            monkeysTerminados.set(i, true);
+                        }
+                    }
+
+                    boolean faltan = false;
+                    for (Boolean m : monkeysTerminados) {
+                        if (!m) {
+                            faltan = true;
+                            break;
+                        }
+                    }
+
+                    if (!faltan) {
+                        progresoMonkey = 100;
+                    }
                     extraerLogCat("monkey_" + device + ".log", device);
                     Thread.sleep(5000);
                     ejecutarCalabashAsinc(device);
@@ -357,6 +390,20 @@ public class IndexControlador implements Serializable {
     }
 
     public void ejecutarCalabashAsinc(final String device) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (progresoCalabash < 100) {
+                        progresoCalabash++;
+                        Thread.sleep(1000);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -388,16 +435,29 @@ public class IndexControlador implements Serializable {
                     String line;
                     while ((line = in.readLine()) != null) {
                         pw2.println(line);
-                        if (progresoCalabash < 100) {
-                            progresoCalabash++;
-                        } else {
-                            progresoCalabash--;
-                        }
                     }
                     pw2.close();
                     archivo2.close();
-                    progresoCalabash = 100;
                     extraerLogCat("calabash_" + device + ".log", device);
+
+                    for (int i = 0; i < calabashTerminados.size(); i++) {
+                        if (!calabashTerminados.get(i)) {
+                            calabashTerminados.set(i, true);
+                        }
+                    }
+
+                    boolean faltan = false;
+                    for (Boolean m : calabashTerminados) {
+                        if (!m) {
+                            faltan = true;
+                            break;
+                        }
+                    }
+
+                    if (!faltan) {
+                        progresoCalabash = 100;
+                    }
+
                     Thread.sleep(5000);
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -508,8 +568,8 @@ public class IndexControlador implements Serializable {
                     }
                     sh += "--timeout 90s";
                     System.out.println("Ejecuntado firebase: " + sh);
-                    //InputStream is = rt.exec("gcloud firebase test android models list").getInputStream();
-                    InputStream is = rt.exec(sh).getInputStream();
+                    InputStream is = rt.exec("gcloud firebase test android models list").getInputStream();
+                    //InputStream is = rt.exec(sh).getInputStream();
                     BufferedReader in = new BufferedReader(new InputStreamReader(is));
                     URL resource2 = this.getClass().getResource("/firebase.log");
                     FileWriter archivo2 = new FileWriter(resource2.getPath());
