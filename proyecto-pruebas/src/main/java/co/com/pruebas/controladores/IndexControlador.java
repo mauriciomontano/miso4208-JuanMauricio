@@ -22,10 +22,8 @@ import java.util.UUID;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -292,6 +290,10 @@ public class IndexControlador implements Serializable {
                     instalarApk(apkDestino, paquete, device);
                     abrirApk(paquete, device);
                     Random random = new Random(semilla);
+                    int incremento = 100 / numeroEventos;
+                    if (nexus5x && galaxy5s) {
+                        incremento /= 2;
+                    }
                     for (int i = 0; i < numeroEventos; i++) {
                         int x1 = random.nextInt(1080);
                         int y1 = random.nextInt(1920);
@@ -336,7 +338,7 @@ public class IndexControlador implements Serializable {
                             default:
                                 break;
                         }
-                        progresoMonkey++;
+                        progresoMonkey += incremento;
                         Thread.sleep(1000);
                     }
                 } catch (Exception e) {
@@ -386,7 +388,11 @@ public class IndexControlador implements Serializable {
                     String line;
                     while ((line = in.readLine()) != null) {
                         pw2.println(line);
-                        progresoCalabash++;
+                        if (progresoCalabash < 100) {
+                            progresoCalabash++;
+                        } else {
+                            progresoCalabash--;
+                        }
                     }
                     pw2.close();
                     archivo2.close();
@@ -471,19 +477,6 @@ public class IndexControlador implements Serializable {
                 try {
                     progresoFireBase = 0;
                     Runtime rt = Runtime.getRuntime();
-                    /*
-                    URL resource = this.getClass().getResource("/ejecutarFireBase.sh");
-                    FileWriter archivo = new FileWriter(resource.getPath());
-                    PrintWriter pw = new PrintWriter(archivo);
-                    String calabash = this.getClass().getResource("/calabash").getPath();
-                    String apkDestino = calabash + File.separator + apk.getFileName();
-                    pw.println("gcloud firebase test android run --type robo --app " + apkDestino + " --device model=Nexus6,version=21,locale=en,orientation=portrait --device model=Nexus7,version=19,locale=fr,orientation=landscape --timeout 90s");
-                    pw.println("gcloud firebase test android models list");
-                    pw.close();
-                    archivo.close();
-                     */
-                    //String sh = "gcloud firebase test android run --type robo --app \" + apkDestino + \" --device model=Nexus6,version=21,locale=en,orientation=portrait --device model=Nexus7,version=19,locale=fr,orientation=landscape --timeout 90s";
-
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + apk.getFileName();
                     String sh = "gcloud firebase test android run --type robo --app " + apkDestino;
