@@ -7,6 +7,7 @@ package co.com.pruebas.controladores;
 public class Dispositivo {
     private String id;
     private String nombre;
+    private String forma;
     private String versiones;
     private boolean v18;
     private boolean v19;
@@ -17,11 +18,12 @@ public class Dispositivo {
     private boolean v24;
     private boolean v25;
 
-    public Dispositivo(String id, String nombre, String versiones) {
+    public Dispositivo(String id, String nombre, String forma, String versiones) {
         this.id = id;
         this.nombre = nombre;
+        this.forma = forma;
         this.versiones = versiones;
-    }
+    }    
     
     public boolean isSelected() {
         return v18 || v19 || v20 || v21 || v22 || v23 || v24 || v25;
@@ -41,6 +43,14 @@ public class Dispositivo {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getForma() {
+        return forma;
+    }
+
+    public void setForma(String forma) {
+        this.forma = forma;
     }
 
     public String getVersiones() {

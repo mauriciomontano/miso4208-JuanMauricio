@@ -66,56 +66,56 @@ public class IndexControlador implements Serializable {
 
     public IndexControlador() {
         listaDisp = new ArrayList<>();
-        listaDisp.add(new Dispositivo("A0001", "OnePlusOne", "22"));
-        listaDisp.add(new Dispositivo("D6503", "XperiaZ2", "21"));
-        listaDisp.add(new Dispositivo("D6603", "XperiaZ3", "21"));
-        listaDisp.add(new Dispositivo("E5803", "XperiaZ5Compact", "22"));
-        listaDisp.add(new Dispositivo("F5121", "SonyXperiaX", "23"));
-        listaDisp.add(new Dispositivo("G8142", "SonyXPERIAXZPremium", "25"));
-        listaDisp.add(new Dispositivo("HWMHA", "HuaweiMate9", "24"));
-        listaDisp.add(new Dispositivo("Nexus10", "Nexus10", "19,21,22"));
-        listaDisp.add(new Dispositivo("Nexus4", "Nexus4", "19,21,22"));
-        listaDisp.add(new Dispositivo("Nexus5", "Nexus5", "19,21,22,23"));
-        listaDisp.add(new Dispositivo("Nexus5X", "Nexus5X", "23,24,25,26"));
-        listaDisp.add(new Dispositivo("Nexus6", "Nexus6", "21,22,23,24,25"));
-        listaDisp.add(new Dispositivo("Nexus6P", "Nexus6P", "23,24,25,26"));
-        listaDisp.add(new Dispositivo("Nexus7", "Nexus7(2012)", "19,21,22"));
-        listaDisp.add(new Dispositivo("Nexus7_clone_16_9", "Nexus7clone,DVD16:9aspectratio", "23,24,25,26"));
-        listaDisp.add(new Dispositivo("Nexus9", "Nexus9", "21,22,23,24,25"));
-        listaDisp.add(new Dispositivo("NexusLowRes", "Low-resolutionMDPIphone", "23,24,25,26"));
-        listaDisp.add(new Dispositivo("SH-04H", "SH-04H", "23"));
-        listaDisp.add(new Dispositivo("athene", "MotoG4Plus", "23"));
-        listaDisp.add(new Dispositivo("athene_f", "MotoG4", "23"));
-        listaDisp.add(new Dispositivo("condor_umts", "MotoE", "19"));
-        listaDisp.add(new Dispositivo("falcon_umts", "MotoG(1stGen)", "19"));
-        listaDisp.add(new Dispositivo("flo", "Nexus7(2013)", "19,21"));
-        listaDisp.add(new Dispositivo("flounder", "Nexus9", "21"));
-        listaDisp.add(new Dispositivo("g3", "LGG3", "19"));
-        listaDisp.add(new Dispositivo("hammerhead", "Nexus5", "19,21,22,23"));
-        listaDisp.add(new Dispositivo("harpia", "MotoGPlay(4thGen)XT1607", "23"));
-        listaDisp.add(new Dispositivo("hero2lte", "GalaxyS7edge", "23"));
-        listaDisp.add(new Dispositivo("herolte", "GalaxyS7", "23,24"));
-        listaDisp.add(new Dispositivo("hlte", "GalaxyNote3Duos", "19"));
-        listaDisp.add(new Dispositivo("htc_m8", "HTCOne(M8)", "19"));
-        listaDisp.add(new Dispositivo("hwALE-H", "HuaweiP8lite", "21"));
-        listaDisp.add(new Dispositivo("j1acevelte", "GalaxyJ1aceSM-J111M", "22"));
-        listaDisp.add(new Dispositivo("j5lte", "GalaxyJ5", "23"));
-        listaDisp.add(new Dispositivo("j7xelte", "GalaxyJ7(SM-J710MN)", "23"));
-        listaDisp.add(new Dispositivo("lt02wifi", "GalaxyTab3", "19"));
-        listaDisp.add(new Dispositivo("lucye", "LGG6LGUS997", "24"));
-        listaDisp.add(new Dispositivo("m0", "SamsungGalaxyS3", "18"));
-        listaDisp.add(new Dispositivo("mako", "Nexus4", "19,22"));
-        listaDisp.add(new Dispositivo("osprey_umts", "MotoG(3rdGen)", "22"));
-        listaDisp.add(new Dispositivo("p1", "LGG4", "22"));
-        listaDisp.add(new Dispositivo("sailfish", "Pixel", "25,26"));
-        listaDisp.add(new Dispositivo("serranolte", "GalaxyS4mini", "19"));
-        listaDisp.add(new Dispositivo("shamu", "Nexus6", "21,22,23"));
-        listaDisp.add(new Dispositivo("t03g", "GalaxyNote2", "19"));
-        listaDisp.add(new Dispositivo("titan_umts", "MotoG(2ndGen)", "19"));
-        listaDisp.add(new Dispositivo("trelte", "GalaxyNote4", "22"));
-        listaDisp.add(new Dispositivo("victara", "MotoX", "19"));
-        listaDisp.add(new Dispositivo("zeroflte", "GalaxyS6", "22"));
-        listaDisp.add(new Dispositivo("zerolte", "GalaxyS6Edge", "22"));
+        listaDisp.add(new Dispositivo("A0001", "OnePlusOne", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("D6503", "XperiaZ2", "PHYSICAL", "21"));
+        listaDisp.add(new Dispositivo("D6603", "XperiaZ3", "PHYSICAL", "21"));
+        listaDisp.add(new Dispositivo("E5803", "XperiaZ5Compact", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("F5121", "SonyXperiaX", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("G8142", "SonyXPERIAXZPremium", "PHYSICAL", "25"));
+        listaDisp.add(new Dispositivo("HWMHA", "HuaweiMate9", "PHYSICAL", "24"));
+        listaDisp.add(new Dispositivo("Nexus10", "Nexus10", "VIRTUAL", "19,21,22"));
+        listaDisp.add(new Dispositivo("Nexus4", "Nexus4", "VIRTUAL", "19,21,22"));
+        listaDisp.add(new Dispositivo("Nexus5", "Nexus5", "VIRTUAL", "19,21,22,23"));
+        listaDisp.add(new Dispositivo("Nexus5X", "Nexus5X", "VIRTUAL", "23,24,25,26"));
+        listaDisp.add(new Dispositivo("Nexus6", "Nexus6", "VIRTUAL", "21,22,23,24,25"));
+        listaDisp.add(new Dispositivo("Nexus6P", "Nexus6P", "VIRTUAL", "23,24,25,26"));
+        listaDisp.add(new Dispositivo("Nexus7", "Nexus7(2012)", "VIRTUAL", "19,21,22"));
+        listaDisp.add(new Dispositivo("Nexus7_clone_16_9", "Nexus7clone,DVD16:9aspectratio", "VIRTUAL", "23,24,25,26"));
+        listaDisp.add(new Dispositivo("Nexus9", "Nexus9", "VIRTUAL", "21,22,23,24,25"));
+        listaDisp.add(new Dispositivo("NexusLowRes", "Low-resolutionMDPIphone", "VIRTUAL", "23,24,25,26"));
+        listaDisp.add(new Dispositivo("SH-04H", "SH-04H", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("athene", "MotoG4Plus", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("athene_f", "MotoG4", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("condor_umts", "MotoE", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("falcon_umts", "MotoG(1stGen)", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("flo", "Nexus7(2013)", "PHYSICAL", "19,21"));
+        listaDisp.add(new Dispositivo("flounder", "Nexus9", "PHYSICAL", "21"));
+        listaDisp.add(new Dispositivo("g3", "LGG3", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("hammerhead", "Nexus5", "PHYSICAL", "19,21,22,23"));
+        listaDisp.add(new Dispositivo("harpia", "MotoGPlay(4thGen)XT1607", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("hero2lte", "GalaxyS7edge", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("herolte", "GalaxyS7", "PHYSICAL", "23,24"));
+        listaDisp.add(new Dispositivo("hlte", "GalaxyNote3Duos", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("htc_m8", "HTCOne(M8)", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("hwALE-H", "HuaweiP8lite", "PHYSICAL", "21"));
+        listaDisp.add(new Dispositivo("j1acevelte", "GalaxyJ1aceSM-J111M", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("j5lte", "GalaxyJ5", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("j7xelte", "GalaxyJ7(SM-J710MN)", "PHYSICAL", "23"));
+        listaDisp.add(new Dispositivo("lt02wifi", "GalaxyTab3", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("lucye", "LGG6LGUS997", "PHYSICAL", "24"));
+        listaDisp.add(new Dispositivo("m0", "SamsungGalaxyS3", "PHYSICAL", "18"));
+        listaDisp.add(new Dispositivo("mako", "Nexus4", "PHYSICAL", "19,22"));
+        listaDisp.add(new Dispositivo("osprey_umts", "MotoG(3rdGen)", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("p1", "LGG4", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("sailfish", "Pixel", "PHYSICAL", "25,26"));
+        listaDisp.add(new Dispositivo("serranolte", "GalaxyS4mini", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("shamu", "Nexus6", "PHYSICAL", "21,22,23"));
+        listaDisp.add(new Dispositivo("t03g", "GalaxyNote2", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("titan_umts", "MotoG(2ndGen)", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("trelte", "GalaxyNote4", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("victara", "MotoX", "PHYSICAL", "19"));
+        listaDisp.add(new Dispositivo("zeroflte", "GalaxyS6", "PHYSICAL", "22"));
+        listaDisp.add(new Dispositivo("zerolte", "GalaxyS6Edge", "PHYSICAL", "22"));
     }
 
     public void ejecutarPruebas() {
@@ -355,21 +355,6 @@ public class IndexControlador implements Serializable {
     }
 
     public void ejecutarCalabashAsinc(final String device) {
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    while (progresoCalabash < 100) {
-                        progresoCalabash++;
-                        Thread.sleep(1000);
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }).start();
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -401,6 +386,7 @@ public class IndexControlador implements Serializable {
                     String line;
                     while ((line = in.readLine()) != null) {
                         pw2.println(line);
+                        progresoCalabash++;
                     }
                     pw2.close();
                     archivo2.close();
@@ -483,20 +469,6 @@ public class IndexControlador implements Serializable {
             @Override
             public void run() {
                 try {
-                    while (progresoFireBase < 100) {
-                        progresoFireBase++;
-                        Thread.sleep(1000);
-                    }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }).start();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
                     progresoFireBase = 0;
                     Runtime rt = Runtime.getRuntime();
                     /*
@@ -551,11 +523,13 @@ public class IndexControlador implements Serializable {
                     PrintWriter pw2 = new PrintWriter(archivo2);
                     String line;
                     while ((line = in.readLine()) != null) {
+                        progresoFireBase++;
                         pw2.println(line);
                     }
                     pw2.close();
                     archivo2.close();
                     progresoFireBase = 100;
+                    Thread.sleep(5000);
                     System.out.println("finaliza ejecucion firebase");
                 } catch (Exception e) {
                     e.printStackTrace();

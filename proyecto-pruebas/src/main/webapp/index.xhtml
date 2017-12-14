@@ -62,11 +62,16 @@
                                 <td style="vertical-align: text-top;"><p:outputLabel value="Dispositivos RoboTest Firebase"></p:outputLabel></td>
                                 <td>
                                     
-                                <p:dataTable var="tmp" rowIndexVar="i" value="#{indexControlador.listaDisp}" style="width: 600px !important;">
-                                    <p:column headerText="Dispositivo" width="50">
+                                <p:dataTable var="tmp" rowIndexVar="i" value="#{indexControlador.listaDisp}" style="width: 900px !important;">
+                                    <p:column headerText="Dispositivo">
                                         <h:outputText value="#{tmp.nombre}"></h:outputText>
                                     </p:column>
-                                    <p:column headerText="Versiones api" width="50">
+                                    
+                                    <p:column headerText="Forma">
+                                        <h:outputText value="#{tmp.forma}"></h:outputText>
+                                    </p:column>
+                                    
+                                    <p:column headerText="Versiones api">
                                         <h:outputText value="18" rendered="#{tmp.versiones.contains('18')}"></h:outputText>
                                         <p:selectBooleanCheckbox rendered="#{tmp.versiones.contains('18')}" value="#{tmp.v18}"/>
                                         
