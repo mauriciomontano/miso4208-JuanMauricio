@@ -50,12 +50,28 @@
                                 <td><p:inputText value="#{indexControlador.emulator_port}"></p:inputText></td>
                             </tr>
                             <tr>
-                                <td><p:outputLabel value="Dispositivos"></p:outputLabel></td>
+                                <td><p:outputLabel value="Dispositivos local"></p:outputLabel></td>
                                 <td>
                                     <h:outputText value="Nexus 5x"></h:outputText>&nbsp;
                                     <p:selectBooleanCheckbox value="#{indexControlador.nexus5x}"/>&nbsp;&nbsp;&nbsp;&nbsp;
                                     <h:outputText value="Galaxy 5s"></h:outputText>&nbsp;
                                     <p:selectBooleanCheckbox value="#{indexControlador.galaxy5s}" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: text-top;"><p:outputLabel value="Dispositivos RoboTest Firebase"></p:outputLabel></td>
+                                <td>
+                                    
+                                <p:dataTable var="tmp" rowIndexVar="i" value="#{indexControlador.listaDisp}" style="width: 500px !important;">
+                                    <p:column headerText="Dispositivo" width="70">
+                                        <h:outputText value="#{tmp}"></h:outputText>
+                                    </p:column>
+                                    <p:column headerText="Seleccionar" width="30">
+                                        <p:selectBooleanCheckbox value="#{indexControlador.listaSeleccion[i]}"/>
+                                    </p:column>
+                                </p:dataTable>
+                                
+                                    
                                 </td>
                             </tr>
                             <tr>
