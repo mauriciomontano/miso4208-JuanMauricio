@@ -58,73 +58,80 @@ public class IndexControlador implements Serializable {
     private int progresoCalabash;
     private int progresoScraper;
     private int progresoFireBase;
-    private Map<String, String> mapaDisp;
-    private List<String> listaDisp;
+    //private Map<String, String> mapaDisp;
+    private List<Dispositivo> listaDisp;
     private List<Boolean> listaSeleccion;
     public static final String NEXUS_5X_ID = "emulator-5554";
     public static final String GALAXY_5X_ID = "320490902d7e3171";
 
     public IndexControlador() {
-        mapaDisp = new HashMap<>();
-        mapaDisp.put("A0001", "OnePlusOne");
-        mapaDisp.put("D6503", "XperiaZ2");
-        mapaDisp.put("D6603", "XperiaZ3");
-        mapaDisp.put("E5803", "XperiaZ5Compact");
-        mapaDisp.put("F5121", "SonyXperiaX");
-        mapaDisp.put("G8142", "SonyXPERIAXZPremium");
-        mapaDisp.put("HWMHA", "HuaweiMate9");
-        mapaDisp.put("Nexus10", "Nexus10");
-        mapaDisp.put("Nexus4", "Nexus4");
-        mapaDisp.put("Nexus5", "Nexus5");
-        mapaDisp.put("Nexus5X", "Nexus5X");
-        mapaDisp.put("Nexus6", "Nexus6");
-        mapaDisp.put("Nexus6P", "Nexus6P");
-        mapaDisp.put("Nexus7", "Nexus7(2012)");
-        mapaDisp.put("Nexus7_clone_16_9", "Nexus7clone,DVD16:9aspectratio");
-        mapaDisp.put("Nexus9", "Nexus9");
-        mapaDisp.put("NexusLowRes", "Low-resolutionMDPIphone");
-        mapaDisp.put("SH-04H", "SH-04H");
-        mapaDisp.put("athene", "MotoG4Plus");
-        mapaDisp.put("athene_f", "MotoG4");
-        mapaDisp.put("condor_umts", "MotoE");
-        mapaDisp.put("falcon_umts", "MotoG(1stGen)");
-        mapaDisp.put("flo", "Nexus7(2013)");
-        mapaDisp.put("flounder", "Nexus9");
-        mapaDisp.put("g3", "LGG3");
-        mapaDisp.put("hammerhead", "Nexus5");
-        mapaDisp.put("harpia", "MotoGPlay(4thGen)XT1607");
-        mapaDisp.put("hero2lte", "GalaxyS7edge");
-        mapaDisp.put("herolte", "GalaxyS7");
-        mapaDisp.put("hlte", "GalaxyNote3Duos");
-        mapaDisp.put("htc_m8", "HTCOne(M8)");
-        mapaDisp.put("hwALE-H", "HuaweiP8lite");
-        mapaDisp.put("j1acevelte", "GalaxyJ1aceSM-J111M");
-        mapaDisp.put("j5lte", "GalaxyJ5");
-        mapaDisp.put("j7xelte", "GalaxyJ7(SM-J710MN)");
-        mapaDisp.put("lt02wifi", "GalaxyTab3");
-        mapaDisp.put("lucye", "LGG6LGUS997");
-        mapaDisp.put("m0", "SamsungGalaxyS3");
-        mapaDisp.put("mako", "Nexus4");
-        mapaDisp.put("osprey_umts", "MotoG(3rdGen)");
-        mapaDisp.put("p1", "LGG4");
-        mapaDisp.put("sailfish", "Pixel");
-        mapaDisp.put("serranolte", "GalaxyS4mini");
-        mapaDisp.put("shamu", "Nexus6");
-        mapaDisp.put("t03g", "GalaxyNote2");
-        mapaDisp.put("titan_umts", "MotoG(2ndGen)");
-        mapaDisp.put("trelte", "GalaxyNote4");
-        mapaDisp.put("victara", "MotoX");
-        mapaDisp.put("zeroflte", "GalaxyS6");
-        mapaDisp.put("zerolte", "GalaxyS6Edge");
-        listaDisp = new ArrayList<>(mapaDisp.values());
-        listaSeleccion = new ArrayList<>();
-        for (int i = 0; i < listaDisp.size(); i++) {
-            listaSeleccion.add(false);
-        }
+        listaDisp = new ArrayList<>();
+        listaDisp.add(new Dispositivo("A0001", "OnePlusOne"));
+        listaDisp.add(new Dispositivo("D6503", "XperiaZ2"));
+        listaDisp.add(new Dispositivo("D6603", "XperiaZ3"));
+        listaDisp.add(new Dispositivo("E5803", "XperiaZ5Compact"));
+        listaDisp.add(new Dispositivo("F5121", "SonyXperiaX"));
+        listaDisp.add(new Dispositivo("G8142", "SonyXPERIAXZPremium"));
+        listaDisp.add(new Dispositivo("HWMHA", "HuaweiMate9"));
+        listaDisp.add(new Dispositivo("Nexus10", "Nexus10"));
+        listaDisp.add(new Dispositivo("Nexus4", "Nexus4"));
+        listaDisp.add(new Dispositivo("Nexus5", "Nexus5"));
+        listaDisp.add(new Dispositivo("Nexus5X", "Nexus5X"));
+        listaDisp.add(new Dispositivo("Nexus6", "Nexus6"));
+        listaDisp.add(new Dispositivo("Nexus6P", "Nexus6P"));
+        listaDisp.add(new Dispositivo("Nexus7", "Nexus7(2012)"));
+        listaDisp.add(new Dispositivo("Nexus7_clone_16_9", "Nexus7clone,DVD16:9aspectratio"));
+        listaDisp.add(new Dispositivo("Nexus9", "Nexus9"));
+        listaDisp.add(new Dispositivo("NexusLowRes", "Low-resolutionMDPIphone"));
+        listaDisp.add(new Dispositivo("SH-04H", "SH-04H"));
+        listaDisp.add(new Dispositivo("athene", "MotoG4Plus"));
+        listaDisp.add(new Dispositivo("athene_f", "MotoG4"));
+        listaDisp.add(new Dispositivo("condor_umts", "MotoE"));
+        listaDisp.add(new Dispositivo("falcon_umts", "MotoG(1stGen)"));
+        listaDisp.add(new Dispositivo("flo", "Nexus7(2013)"));
+        listaDisp.add(new Dispositivo("flounder", "Nexus9"));
+        listaDisp.add(new Dispositivo("g3", "LGG3"));
+        listaDisp.add(new Dispositivo("hammerhead", "Nexus5"));
+        listaDisp.add(new Dispositivo("harpia", "MotoGPlay(4thGen)XT1607"));
+        listaDisp.add(new Dispositivo("hero2lte", "GalaxyS7edge"));
+        listaDisp.add(new Dispositivo("herolte", "GalaxyS7"));
+        listaDisp.add(new Dispositivo("hlte", "GalaxyNote3Duos"));
+        listaDisp.add(new Dispositivo("htc_m8", "HTCOne(M8)"));
+        listaDisp.add(new Dispositivo("hwALE-H", "HuaweiP8lite"));
+        listaDisp.add(new Dispositivo("j1acevelte", "GalaxyJ1aceSM-J111M"));
+        listaDisp.add(new Dispositivo("j5lte", "GalaxyJ5"));
+        listaDisp.add(new Dispositivo("j7xelte", "GalaxyJ7(SM-J710MN)"));
+        listaDisp.add(new Dispositivo("lt02wifi", "GalaxyTab3"));
+        listaDisp.add(new Dispositivo("lucye", "LGG6LGUS997"));
+        listaDisp.add(new Dispositivo("m0", "SamsungGalaxyS3"));
+        listaDisp.add(new Dispositivo("mako", "Nexus4"));
+        listaDisp.add(new Dispositivo("osprey_umts", "MotoG(3rdGen)"));
+        listaDisp.add(new Dispositivo("p1", "LGG4"));
+        listaDisp.add(new Dispositivo("sailfish", "Pixel"));
+        listaDisp.add(new Dispositivo("serranolte", "GalaxyS4mini"));
+        listaDisp.add(new Dispositivo("shamu", "Nexus6"));
+        listaDisp.add(new Dispositivo("t03g", "GalaxyNote2"));
+        listaDisp.add(new Dispositivo("titan_umts", "MotoG(2ndGen)"));
+        listaDisp.add(new Dispositivo("trelte", "GalaxyNote4"));
+        listaDisp.add(new Dispositivo("victara", "MotoX"));
+        listaDisp.add(new Dispositivo("zeroflte", "GalaxyS6"));
+        listaDisp.add(new Dispositivo("zerolte", "GalaxyS6Edge"));
     }
 
     public void ejecutarPruebas() {
-        if (numeroEventos <= 0) {
+        
+        boolean algoEnFireBase = false;
+        for (Dispositivo tmp : listaDisp) {
+            if(tmp.isSelected()) {
+                algoEnFireBase = true;
+                break;
+            }
+        }
+        
+        if (!algoEnFireBase) {
+            String msn = "Debe seleccionar almenos un dispositivo firebase";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
+        } else if (numeroEventos <= 0) {
             String msn = "El numero de eventos debe ser mayor a cero";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else if (semilla <= 0) {
@@ -498,12 +505,46 @@ public class IndexControlador implements Serializable {
                     PrintWriter pw = new PrintWriter(archivo);
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + File.separator + apk.getFileName();
-                    //pw.println("gcloud firebase test android run --type robo --app " + apkDestino + " --device model=Nexus6,version=21,locale=en,orientation=portrait --device model=Nexus7,version=19,locale=fr,orientation=landscape --timeout 90s");
+                    pw.println("gcloud firebase test android run --type robo --app " + apkDestino + " --device model=Nexus6,version=21,locale=en,orientation=portrait --device model=Nexus7,version=19,locale=fr,orientation=landscape --timeout 90s");
                     pw.println("gcloud firebase test android models list");
                     pw.close();
                     archivo.close();
-*/
-                    InputStream is = rt.exec("gcloud firebase test android models list").getInputStream();
+                     */
+                    //String sh = "gcloud firebase test android run --type robo --app \" + apkDestino + \" --device model=Nexus6,version=21,locale=en,orientation=portrait --device model=Nexus7,version=19,locale=fr,orientation=landscape --timeout 90s";
+
+                    String calabash = this.getClass().getResource("/calabash").getPath();
+                    String apkDestino = calabash + File.separator + apk.getFileName();
+                    String sh = "gcloud firebase test android run --type robo --app " + apkDestino;
+                    for (Dispositivo tmp : listaDisp) {
+                        if (tmp.isV18()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=18,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV19()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=19,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV20()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=20,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV21()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=21,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV22()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=22,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV23()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=23,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV24()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=24,locale=en,orientation=portrait ";
+                        }
+                        if (tmp.isV25()) {
+                            sh = sh + " --device model=" + tmp.getId() + ",version=25,locale=en,orientation=portrait ";
+                        }
+                    }
+                    sh = sh + " --timeout 90s";
+                    System.out.println("Ejecuntado firebase: " + sh);
+                    //InputStream is = rt.exec("gcloud firebase test android models list").getInputStream();
+                    InputStream is = rt.exec("sh").getInputStream();
                     BufferedReader in = new BufferedReader(new InputStreamReader(is));
                     URL resource2 = this.getClass().getResource("/firebase.log");
                     FileWriter archivo2 = new FileWriter(resource2.getPath());
@@ -659,19 +700,11 @@ public class IndexControlador implements Serializable {
         this.progresoFireBase = progresoFireBase;
     }
 
-    public Map<String, String> getMapaDisp() {
-        return mapaDisp;
-    }
-
-    public void setMapaDisp(Map<String, String> mapaDisp) {
-        this.mapaDisp = mapaDisp;
-    }
-
-    public List<String> getListaDisp() {
+    public List<Dispositivo> getListaDisp() {
         return listaDisp;
     }
 
-    public void setListaDisp(List<String> listaDisp) {
+    public void setListaDisp(List<Dispositivo> listaDisp) {
         this.listaDisp = listaDisp;
     }
 

@@ -62,12 +62,34 @@
                                 <td style="vertical-align: text-top;"><p:outputLabel value="Dispositivos RoboTest Firebase"></p:outputLabel></td>
                                 <td>
                                     
-                                <p:dataTable var="tmp" rowIndexVar="i" value="#{indexControlador.listaDisp}" style="width: 500px !important;">
-                                    <p:column headerText="Dispositivo" width="70">
-                                        <h:outputText value="#{tmp}"></h:outputText>
+                                <p:dataTable var="tmp" rowIndexVar="i" value="#{indexControlador.listaDisp}" style="width: 1000px !important;">
+                                    <p:column headerText="Dispositivo" width="30">
+                                        <h:outputText value="#{tmp.nombre}"></h:outputText>
                                     </p:column>
-                                    <p:column headerText="Seleccionar" width="30">
-                                        <p:selectBooleanCheckbox value="#{indexControlador.listaSeleccion[i]}"/>
+                                    <p:column headerText="Versiones api" width="70">
+                                        <h:outputText value="18"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v18}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="19"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v19}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="20"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v20}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="21"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v21}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="22"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v22}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="23"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v23}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="24"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v24}"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <h:outputText value="25"></h:outputText>&nbsp;
+                                        <p:selectBooleanCheckbox value="#{tmp.v25}"/>&nbsp;&nbsp;&nbsp;&nbsp;
                                     </p:column>
                                 </p:dataTable>
                                 
