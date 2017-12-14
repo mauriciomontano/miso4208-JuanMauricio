@@ -114,15 +114,15 @@ public class ReporteControlador implements Serializable {
 
             ChartSeries n5xMonkeySerie = new ChartSeries();
             n5xMonkeySerie.setLabel("Nexus 5x");
-            n5xMonkeySerie.set("Errores", er1);
-            n5xMonkeySerie.set("Crashes", cr1);
-            n5xMonkeySerie.set("Excepciones", ex1);
+            n5xMonkeySerie.set("Errores generales", er1);
+            n5xMonkeySerie.set("Crashes del apk", cr1);
+            n5xMonkeySerie.set("Excepciones generales", ex1);
 
             ChartSeries n6xMonkeySerie = new ChartSeries();
             n6xMonkeySerie.setLabel("Galaxy 5s");
-            n6xMonkeySerie.set("Errores", er2);
-            n6xMonkeySerie.set("Crashes", cr2);
-            n6xMonkeySerie.set("Excepciones", ex2);
+            n6xMonkeySerie.set("Errores generales", er2);
+            n6xMonkeySerie.set("Crashes del apk", cr2);
+            n6xMonkeySerie.set("Excepciones generales", ex2);
 
             barModelMonkey.addSeries(n5xMonkeySerie);
             barModelMonkey.addSeries(n6xMonkeySerie);
@@ -213,15 +213,15 @@ public class ReporteControlador implements Serializable {
 
             ChartSeries n5xCalabashSerie = new ChartSeries();
             n5xCalabashSerie.setLabel("Nexus 5x");
-            n5xCalabashSerie.set("Errores", er3);
-            n5xCalabashSerie.set("Crashes", cr3);
-            n5xCalabashSerie.set("Excepciones", ex3);
+            n5xCalabashSerie.set("Errores generales", er3);
+            n5xCalabashSerie.set("Crashes del apk", cr3);
+            n5xCalabashSerie.set("Excepciones generales", ex3);
 
             ChartSeries n6xCalabashSerie = new ChartSeries();
             n6xCalabashSerie.setLabel("Galaxy 5s");
-            n6xCalabashSerie.set("Errores", er4);
-            n6xCalabashSerie.set("Crashes", cr4);
-            n6xCalabashSerie.set("Excepciones", ex4);
+            n6xCalabashSerie.set("Errores generales", er4);
+            n6xCalabashSerie.set("Crashes del apk", cr4);
+            n6xCalabashSerie.set("Excepciones generales", ex4);
 
             barModelCalabash.addSeries(n5xCalabashSerie);
             barModelCalabash.addSeries(n6xCalabashSerie);
