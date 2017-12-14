@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.net.URL;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -27,14 +28,19 @@ public class ReporteControlador implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Inject
+    private IndexControlador ic;
+
     private BarChartModel barModelMonkey;
     private BarChartModel barModelCalabash;
     private StreamedContent fileMonkeyNexus5x;
     private StreamedContent fileMonkeyGalaxy5s;
     private StreamedContent fileCalabashNexus5x;
     private StreamedContent fileCalabashGalaxy5s;
-    private StreamedContent fileRipper;
-    private String ripperLog;
+    private StreamedContent fileCalabashFeaturesNexus5x;
+    private StreamedContent fileCalabashFeaturesGalaxy5s;
+    private StreamedContent fileScraper;
+    private String scraperLog;
 
     @PostConstruct
     public void postConstruct() {
@@ -51,7 +57,7 @@ public class ReporteControlador implements Serializable {
             Integer er2 = 0;
             Integer cr2 = 0;
             Integer ex2 = 0;
-            
+
             URL r1 = this.getClass().getResource("/monkey_" + IndexControlador.NEXUS_5X_ID + ".log");
             if (r1 != null) {
                 File a1 = new File(r1.getPath());
@@ -63,7 +69,7 @@ public class ReporteControlador implements Serializable {
                         er1++;
                     }
 
-                    if (linea1.toLowerCase().contains("crash")) {
+                    if (linea1.toLowerCase().contains(ic.getPaquete()) && linea1.toLowerCase().contains("has died")) {
                         cr1++;
                     }
 
@@ -73,11 +79,11 @@ public class ReporteControlador implements Serializable {
                 }
                 fr1.close();
                 br1.close();
-                
+
                 InputStream stream = new FileInputStream(r1.getPath());
                 fileMonkeyNexus5x = new DefaultStreamedContent(stream, null, "fileMonkeyNexus5x.log");
             }
-            
+
             URL r2 = this.getClass().getResource("/monkey_" + IndexControlador.GALAXY_5X_ID + ".log");
             if (r2 != null) {
                 File a2 = new File(r2.getPath());
@@ -89,7 +95,7 @@ public class ReporteControlador implements Serializable {
                         er2++;
                     }
 
-                    if (linea2.toLowerCase().contains("crash")) {
+                    if (linea2.toLowerCase().contains(ic.getPaquete()) && linea2.toLowerCase().contains("has died")) {
                         cr2++;
                     }
 
@@ -99,7 +105,7 @@ public class ReporteControlador implements Serializable {
                 }
                 fr2.close();
                 br2.close();
-                
+
                 InputStream stream = new FileInputStream(r2.getPath());
                 fileMonkeyGalaxy5s = new DefaultStreamedContent(stream, null, "fileMonkeyGalaxy5s.log");
             }
@@ -128,7 +134,7 @@ public class ReporteControlador implements Serializable {
             Axis yAxisMonkey = barModelMonkey.getAxis(AxisType.Y);
             yAxisMonkey.setLabel("Porcentaje");
             yAxisMonkey.setMin(0);
-            yAxisMonkey.setMax(100);
+            yAxisMonkey.setMax(30);
 
             barModelCalabash = new BarChartModel();
 
@@ -138,7 +144,7 @@ public class ReporteControlador implements Serializable {
             Integer er4 = 0;
             Integer cr4 = 0;
             Integer ex4 = 0;
-            
+
             URL r3 = this.getClass().getResource("/calabash_" + IndexControlador.NEXUS_5X_ID + ".log");
             if (r3 != null) {
                 File a3 = new File(r3.getPath());
@@ -150,7 +156,7 @@ public class ReporteControlador implements Serializable {
                         er3++;
                     }
 
-                    if (linea3.toLowerCase().contains("crash")) {
+                    if (linea3.toLowerCase().contains(ic.getPaquete()) && linea3.toLowerCase().contains("has died")) {
                         cr3++;
                     }
 
@@ -160,11 +166,11 @@ public class ReporteControlador implements Serializable {
                 }
                 fr3.close();
                 br3.close();
-                
+
                 InputStream stream = new FileInputStream(r3.getPath());
                 fileCalabashNexus5x = new DefaultStreamedContent(stream, null, "fileCalabashNexus5x.log");
             }
-            
+
             URL r4 = this.getClass().getResource("/calabash_" + IndexControlador.GALAXY_5X_ID + ".log");
             if (r4 != null) {
                 File a4 = new File(r4.getPath());
@@ -176,7 +182,7 @@ public class ReporteControlador implements Serializable {
                         er4++;
                     }
 
-                    if (linea4.toLowerCase().contains("crash")) {
+                    if (linea4.toLowerCase().contains(ic.getPaquete()) && linea4.toLowerCase().contains("has died")) {
                         cr4++;
                     }
 
@@ -186,9 +192,21 @@ public class ReporteControlador implements Serializable {
                 }
                 fr4.close();
                 br4.close();
-                
+
                 InputStream stream = new FileInputStream(r4.getPath());
                 fileCalabashGalaxy5s = new DefaultStreamedContent(stream, null, "fileCalabashGalaxy5s.log");
+            }
+            
+            URL r5 = this.getClass().getResource("/calabash_feature_" + IndexControlador.NEXUS_5X_ID + ".log");
+            if (r5 != null) {
+                InputStream stream = new FileInputStream(r5.getPath());
+                fileCalabashFeaturesNexus5x = new DefaultStreamedContent(stream, null, "fileCalabashFeaturesNexus5x.log");
+            }
+            
+            URL r6 = this.getClass().getResource("/calabash_feature_" + IndexControlador.GALAXY_5X_ID + ".log");
+            if (r6 != null) {
+                InputStream stream = new FileInputStream(r6.getPath());
+                fileCalabashFeaturesGalaxy5s = new DefaultStreamedContent(stream, null, "fileCalabashFeaturesGalaxy5s.log");
             }
 
             ChartSeries n5xCalabashSerie = new ChartSeries();
@@ -215,25 +233,33 @@ public class ReporteControlador implements Serializable {
             Axis yAxisCalabash = barModelCalabash.getAxis(AxisType.Y);
             yAxisCalabash.setLabel("Porcentaje");
             yAxisCalabash.setMin(0);
-            yAxisCalabash.setMax(100);
+            yAxisCalabash.setMax(30);
 
-            URL r5 = this.getClass().getResource("/ripper.log");
-            File a5 = new File(r5.getPath());
-            FileReader fr5 = new FileReader(a5);
-            BufferedReader br5 = new BufferedReader(fr5);
-            String linea5;
-            ripperLog = "";
-            while ((linea5 = br5.readLine()) != null) {
-                ripperLog = ripperLog + linea5 + "\n";
+            URL r7 = this.getClass().getResource("/scraper.log");
+            File a7 = new File(r7.getPath());
+            FileReader fr7 = new FileReader(a7);
+            BufferedReader br7 = new BufferedReader(fr7);
+            String linea7;
+            scraperLog = "";
+            while ((linea7 = br7.readLine()) != null) {
+                scraperLog = scraperLog + linea7 + "\n";
             }
-            fr5.close();
-            br5.close();
-            
-            InputStream stream = new FileInputStream(r5.getPath());
-            fileRipper = new DefaultStreamedContent(stream, null, "fileRipper.log");
+            fr7.close();
+            br7.close();
+
+            InputStream stream = new FileInputStream(r7.getPath());
+            fileScraper = new DefaultStreamedContent(stream, null, "fileScraper.log");
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public IndexControlador getIc() {
+        return ic;
+    }
+
+    public void setIc(IndexControlador ic) {
+        this.ic = ic;
     }
 
     public BarChartModel getBarModelMonkey() {
@@ -284,19 +310,35 @@ public class ReporteControlador implements Serializable {
         this.fileCalabashGalaxy5s = fileCalabashGalaxy5s;
     }
 
-    public StreamedContent getFileRipper() {
-        return fileRipper;
+    public StreamedContent getFileCalabashFeaturesNexus5x() {
+        return fileCalabashFeaturesNexus5x;
     }
 
-    public void setFileRipper(StreamedContent fileRipper) {
-        this.fileRipper = fileRipper;
+    public void setFileCalabashFeaturesNexus5x(StreamedContent fileCalabashFeaturesNexus5x) {
+        this.fileCalabashFeaturesNexus5x = fileCalabashFeaturesNexus5x;
     }
 
-    public String getRipperLog() {
-        return ripperLog;
+    public StreamedContent getFileCalabashFeaturesGalaxy5s() {
+        return fileCalabashFeaturesGalaxy5s;
     }
 
-    public void setRipperLog(String ripperLog) {
-        this.ripperLog = ripperLog;
-    }   
+    public void setFileCalabashFeaturesGalaxy5s(StreamedContent fileCalabashFeaturesGalaxy5s) {
+        this.fileCalabashFeaturesGalaxy5s = fileCalabashFeaturesGalaxy5s;
+    }
+
+    public StreamedContent getFileScraper() {
+        return fileScraper;
+    }
+
+    public void setFileScraper(StreamedContent fileScraper) {
+        this.fileScraper = fileScraper;
+    }
+
+    public String getScraperLog() {
+        return scraperLog;
+    }
+
+    public void setScraperLog(String scraperLog) {
+        this.scraperLog = scraperLog;
+    }
 }

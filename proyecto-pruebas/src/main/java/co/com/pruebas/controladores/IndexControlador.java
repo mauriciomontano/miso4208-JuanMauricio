@@ -46,18 +46,22 @@ public class IndexControlador implements Serializable {
     private boolean galaxy5s;
     private String paginaTienda = "https://play.google.com/store/apps/category/FINANCE/collection/topselling_paid";
     private int numeroEventos = 3;
+    private int semilla = 96423;
     private String paquete = "net.alaindonesia.silectric";
     private UploadedFile apk;
     private UploadedFile features;
     private int progresoMonkey;
     private int progresoCalabash;
-    private int progresoRipper;
+    private int progresoScraper;
     public static final String NEXUS_5X_ID = "emulator-5554";
     public static final String GALAXY_5X_ID = "320490902d7e3171";
 
     public void ejecutarPruebas() {
         if (numeroEventos <= 0) {
             String msn = "El numero de eventos debe ser mayor a cero";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
+        } else if (semilla <= 0) {
+            String msn = "La semilla debe ser mayor a cero";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else if (!nexus5x && !galaxy5s) {
             String msn = "Debe seleccionar al menos un dispositivo";
@@ -77,25 +81,25 @@ public class IndexControlador implements Serializable {
             if (nexus5x && galaxy5s) {
                 progresoMonkey = 0;
                 progresoCalabash = 0;
-                progresoRipper = 0;
+                progresoScraper = 0;
                 ejecutarMonkeyAsinc(NEXUS_5X_ID);
 
                 progresoMonkey = 0;
                 progresoCalabash = 0;
-                progresoRipper = 0;
+                progresoScraper = 0;
                 ejecutarMonkeyAsinc(GALAXY_5X_ID);
             } else if (nexus5x) {
                 progresoMonkey = 0;
                 progresoCalabash = 0;
-                progresoRipper = 0;
+                progresoScraper = 0;
                 ejecutarMonkeyAsinc(NEXUS_5X_ID);
             } else if (galaxy5s) {
                 progresoMonkey = 0;
                 progresoCalabash = 0;
-                progresoRipper = 0;
+                progresoScraper = 0;
                 ejecutarMonkeyAsinc(GALAXY_5X_ID);
             }
-            ejecutarRipperAsinc();
+            ejecutarScraperAsinc();
         }
     }
 
@@ -212,7 +216,7 @@ public class IndexControlador implements Serializable {
                     copiarArchivo(apk.getInputstream(), apkDestino);
                     instalarApk(apkDestino, paquete, device);
                     abrirApk(paquete, device);
-                    Random random = new Random();
+                    Random random = new Random(semilla);
                     for (int i = 0; i < numeroEventos; i++) {
                         int x1 = random.nextInt(1080);
                         int y1 = random.nextInt(1920);
@@ -275,11 +279,27 @@ public class IndexControlador implements Serializable {
         }).start();
     }
 
-    public void ejecutarCalabashAsinc(final String device) {
+    public void ejecutarCalabashAsinc(final String device) { 
+        
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
+                    while (progresoCalabash < 100) {
+                        progresoCalabash++;
+                        Thread.sleep(1000);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    progresoCalabash = 0;
                     borrarLogCat(device);
                     String calabash = this.getClass().getResource("/calabash").getPath();
                     String apkDestino = calabash + File.separator + apk.getFileName();
@@ -297,17 +317,21 @@ public class IndexControlador implements Serializable {
                     archivo.close();
                     pw.close();
                     Runtime rt = Runtime.getRuntime();
-                    rt.exec("sh " + calabash + File.separator + "calabash.sh");
-                    Thread.sleep(5000);
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                try {
-                    while(progresoCalabash < 100) {
-                        progresoCalabash++;
-                        Thread.sleep(1000);
+                    InputStream is = rt.exec("sh " + calabash + File.separator + "calabash.sh").getInputStream();
+                    BufferedReader in = new BufferedReader(new InputStreamReader(is));
+
+                    URL resource2 = this.getClass().getResource(File.separator + "calabash_feature_" + device + ".log");
+                    FileWriter archivo2 = new FileWriter(resource2.getPath());
+                    PrintWriter pw2 = new PrintWriter(archivo2);
+                    String line;
+                    while ((line = in.readLine()) != null) {
+                        pw2.println(line);
                     }
+                    pw2.close();
+                    archivo2.close();
+                    progresoCalabash = 100;
                     extraerLogCat("calabash_" + device + ".log", device);
+                    Thread.sleep(5000);
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -315,7 +339,7 @@ public class IndexControlador implements Serializable {
         }).start();
     }
 
-    public void ejecutarRipperAsinc() {
+    public void ejecutarScraperAsinc() {
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -328,12 +352,12 @@ public class IndexControlador implements Serializable {
                         hrefs.add(href);
                     }
 
-                    URL resource = this.getClass().getResource("/ripper.log");
+                    URL resource = this.getClass().getResource("/scraper.log");
                     FileWriter archivo = new FileWriter(resource.getPath());
                     PrintWriter pw = new PrintWriter(archivo);
 
                     for (String url : hrefs) {
-                        progresoRipper++;
+                        progresoScraper++;
                         Document paginaApp = Jsoup.connect(url).timeout(0).get();
 
                         //Descripcion
@@ -370,7 +394,7 @@ public class IndexControlador implements Serializable {
                     e.printStackTrace();
                 }
                 try {
-                    progresoRipper = 100;
+                    progresoScraper = 100;
                     Thread.sleep(1000);
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -451,6 +475,14 @@ public class IndexControlador implements Serializable {
         this.numeroEventos = numeroEventos;
     }
 
+    public int getSemilla() {
+        return semilla;
+    }
+
+    public void setSemilla(int semilla) {
+        this.semilla = semilla;
+    }
+
     public String getPaquete() {
         return paquete;
     }
@@ -491,11 +523,11 @@ public class IndexControlador implements Serializable {
         this.progresoCalabash = progresoCalabash;
     }
 
-    public int getProgresoRipper() {
-        return progresoRipper;
+    public int getProgresoScraper() {
+        return progresoScraper;
     }
 
-    public void setProgresoRipper(int progresoRipper) {
-        this.progresoRipper = progresoRipper;
-    }
+    public void setProgresoScraper(int progresoScraper) {
+        this.progresoScraper = progresoScraper;
+    }   
 }
