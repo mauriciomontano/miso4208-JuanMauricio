@@ -77,7 +77,7 @@ public class IndexControlador implements Serializable {
             String msn = "Debe indicar una URL de la tienda de aplicaciones";
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, msn, msn));
         } else {
-            RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('startButton2').disable();");
+            RequestContext.getCurrentInstance().execute("PF('pbAjax1').start();PF('pbAjax2').start();PF('pbAjax3').start();PF('pbAjax4').start();PF('startButton2').disable();");
 
             if (nexus5x && galaxy5s) {
                 progresoMonkey = 0;
