@@ -33,53 +33,62 @@
                         
                         <p:messages autoUpdate="true" closable="true" id="mensajesPagina"/>
                         
-                        <h:outputText value="No se encuentran resultados..." rendered="#{indexControlador.progresoMonkey lt 100 or indexControlador.progresoCalabash lt 100 or indexControlador.progresoScraper lt 100}"></h:outputText>
+                        <h:outputText value="No se encuentran resultados..." rendered="#{indexControlador.progresoMonkey lt 100 or indexControlador.progresoCalabash lt 100 or indexControlador.progresoScraper lt 100 and indexControlador.progresoFireBase lt 100}"></h:outputText>
                         
-                        <p:chart id="barModelMonkey" type="bar" model="#{reporteControlador.barModelMonkey}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}"/>
+                        <p:chart id="barModelMonkey" type="bar" model="#{reporteControlador.barModelMonkey}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}"/>
                         
                         <br/>
                         
                         <div align="right">
-                            <p:commandButton value="Logcat nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Logcat nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileMonkeyNexus5x}" />
                             </p:commandButton>
                             &nbsp;
-                            <p:commandButton value="Logcat galaxy" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Logcat galaxy" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileMonkeyGalaxy5s}" />
                             </p:commandButton>
                         </div>
 
                         <br/><br/><br/>
                         
-                        <p:chart id="barModelCalabash" type="bar" model="#{reporteControlador.barModelCalabash}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}"/>
+                        <p:chart id="barModelCalabash" type="bar" model="#{reporteControlador.barModelCalabash}" style="height:300px" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}"/>
 
                         <br/>
                         
                         <div align="right">
-                            <p:commandButton value="Logcat nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Logcat nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileCalabashNexus5x}" />
                             </p:commandButton>
                             &nbsp;
-                            <p:commandButton value="Features nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Features nexus" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileCalabashFeaturesNexus5x}" />
                             </p:commandButton>
                             &nbsp;
-                            <p:commandButton value="Logcat galaxy" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Logcat galaxy" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileCalabashGalaxy5s}" />
                             </p:commandButton>
                             &nbsp;
-                            <p:commandButton value="Features galaxy" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Features galaxy" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileCalabashFeaturesGalaxy5s}" />
                             </p:commandButton>
                         </div>
 
                         <br/><br/>
                         
-                        <div align="center"><h:outputText value="Reporte scraper" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}"/></div><br/>
-                        <p:inputTextarea readonly="true" rows="6" cols="105" value="#{reporteControlador.scraperLog}" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}"/>
+                        <div align="center"><h:outputText value="Reporte firebase" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}"/></div><br/>
+                        <p:inputTextarea readonly="true" rows="6" cols="105" value="#{reporteControlador.firebaseLog}" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}"/>
                         <br/><br/>
                         <div align="right">
-                            <p:commandButton value="Scraper" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100}">
+                            <p:commandButton value="Firebase" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
+                                <p:fileDownload value="#{reporteControlador.fileFireBase}" />
+                            </p:commandButton>
+                        </div>
+                        
+                        <div align="center"><h:outputText value="Reporte scraper" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}"/></div><br/>
+                        <p:inputTextarea readonly="true" rows="6" cols="105" value="#{reporteControlador.scraperLog}" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}"/>
+                        <br/><br/>
+                        <div align="right">
+                            <p:commandButton value="Scraper" ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s" rendered="#{indexControlador.progresoMonkey ge 100 and indexControlador.progresoCalabash ge 100 and indexControlador.progresoScraper ge 100 and indexControlador.progresoFireBase ge 100}">
                                 <p:fileDownload value="#{reporteControlador.fileScraper}" />
                             </p:commandButton>
                         </div>

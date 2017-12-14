@@ -40,7 +40,9 @@ public class ReporteControlador implements Serializable {
     private StreamedContent fileCalabashFeaturesNexus5x;
     private StreamedContent fileCalabashFeaturesGalaxy5s;
     private StreamedContent fileScraper;
+    private StreamedContent fileFireBase;
     private String scraperLog;
+    private String firebaseLog;
 
     @PostConstruct
     public void postConstruct() {
@@ -196,13 +198,13 @@ public class ReporteControlador implements Serializable {
                 InputStream stream = new FileInputStream(r4.getPath());
                 fileCalabashGalaxy5s = new DefaultStreamedContent(stream, null, "fileCalabashGalaxy5s.log");
             }
-            
+
             URL r5 = this.getClass().getResource("/calabash_feature_" + IndexControlador.NEXUS_5X_ID + ".log");
             if (r5 != null) {
                 InputStream stream = new FileInputStream(r5.getPath());
                 fileCalabashFeaturesNexus5x = new DefaultStreamedContent(stream, null, "fileCalabashFeaturesNexus5x.log");
             }
-            
+
             URL r6 = this.getClass().getResource("/calabash_feature_" + IndexControlador.GALAXY_5X_ID + ".log");
             if (r6 != null) {
                 InputStream stream = new FileInputStream(r6.getPath());
@@ -246,9 +248,22 @@ public class ReporteControlador implements Serializable {
             }
             fr7.close();
             br7.close();
+            InputStream stream7 = new FileInputStream(r7.getPath());
+            fileScraper = new DefaultStreamedContent(stream7, null, "fileScraper.log");
 
-            InputStream stream = new FileInputStream(r7.getPath());
-            fileScraper = new DefaultStreamedContent(stream, null, "fileScraper.log");
+            URL r8 = this.getClass().getResource("/firebase.log");
+            File a8 = new File(r8.getPath());
+            FileReader fr8 = new FileReader(a8);
+            BufferedReader br8 = new BufferedReader(fr8);
+            String linea8;
+            firebaseLog = "";
+            while ((linea8 = br8.readLine()) != null) {
+                firebaseLog = firebaseLog + linea8 + "\n";
+            }
+            fr8.close();
+            br8.close();
+            InputStream stream8 = new FileInputStream(r8.getPath());
+            fileFireBase = new DefaultStreamedContent(stream8, null, "fileFireBase.log");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -334,6 +349,14 @@ public class ReporteControlador implements Serializable {
         this.fileScraper = fileScraper;
     }
 
+    public StreamedContent getFileFireBase() {
+        return fileFireBase;
+    }
+
+    public void setFileFireBase(StreamedContent fileFireBase) {
+        this.fileFireBase = fileFireBase;
+    }
+
     public String getScraperLog() {
         return scraperLog;
     }
@@ -341,4 +364,12 @@ public class ReporteControlador implements Serializable {
     public void setScraperLog(String scraperLog) {
         this.scraperLog = scraperLog;
     }
+
+    public String getFirebaseLog() {
+        return firebaseLog;
+    }
+
+    public void setFirebaseLog(String firebaseLog) {
+        this.firebaseLog = firebaseLog;
+    }   
 }

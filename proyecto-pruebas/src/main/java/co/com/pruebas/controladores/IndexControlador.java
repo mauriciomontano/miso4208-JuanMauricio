@@ -53,6 +53,7 @@ public class IndexControlador implements Serializable {
     private int progresoMonkey;
     private int progresoCalabash;
     private int progresoScraper;
+    private int progresoFireBase;
     public static final String NEXUS_5X_ID = "emulator-5554";
     public static final String GALAXY_5X_ID = "320490902d7e3171";
 
@@ -99,6 +100,7 @@ public class IndexControlador implements Serializable {
                 progresoScraper = 0;
                 ejecutarMonkeyAsinc(GALAXY_5X_ID);
             }
+            ejecutarFireBaseAsync();
             ejecutarScraperAsinc();
         }
     }
@@ -279,8 +281,8 @@ public class IndexControlador implements Serializable {
         }).start();
     }
 
-    public void ejecutarCalabashAsinc(final String device) { 
-        
+    public void ejecutarCalabashAsinc(final String device) {
+
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -398,6 +400,55 @@ public class IndexControlador implements Serializable {
                     Thread.sleep(1000);
                 } catch (Exception ex) {
                     ex.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    public void ejecutarFireBaseAsync() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    while (progresoFireBase < 100) {
+                        progresoFireBase++;
+                        Thread.sleep(1000);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }).start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    progresoFireBase = 0;
+                    Runtime rt = Runtime.getRuntime();
+                    URL resource = this.getClass().getResource("/ejecutarFireBase.sh");
+                    FileWriter archivo = new FileWriter(resource.getPath());
+                    PrintWriter pw = new PrintWriter(archivo);
+                    String calabash = this.getClass().getResource("/calabash").getPath();
+                    String apkDestino = calabash + File.separator + apk.getFileName();
+                    pw.println("gcloud firebase test android run --type robo --app " + apkDestino + " --device model=Nexus6,version=21,locale=en,orientation=portrait --device model=Nexus7,version=19,locale=fr,orientation=landscape --timeout 90s");
+                    pw.close();
+                    archivo.close();
+                    InputStream is = rt.exec("sh " + resource.getPath()).getInputStream();
+                    BufferedReader in = new BufferedReader(new InputStreamReader(is));
+                    URL resource2 = this.getClass().getResource("/firebase.log");
+                    FileWriter archivo2 = new FileWriter(resource2.getPath());
+                    PrintWriter pw2 = new PrintWriter(archivo2);
+                    String line;
+                    while ((line = in.readLine()) != null) {
+                        pw2.println(line);
+                    }
+                    pw2.close();
+                    archivo2.close();
+                    progresoFireBase = 100;
+                    System.out.println("finaliza ejecucion firebase");
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }).start();
@@ -529,5 +580,13 @@ public class IndexControlador implements Serializable {
 
     public void setProgresoScraper(int progresoScraper) {
         this.progresoScraper = progresoScraper;
-    }   
+    }
+
+    public int getProgresoFireBase() {
+        return progresoFireBase;
+    }
+
+    public void setProgresoFireBase(int progresoFireBase) {
+        this.progresoFireBase = progresoFireBase;
+    }
 }
